@@ -1,4 +1,9 @@
-# SIGMOD'18 - P-Store: An Elastic Database System with Predictive Provisioning
+# P-Store: An Elastic Database System with Predictive Provisioning
+
+- Authors: Rebecca Taft, Nosayba El-Sayed, Marco Serafini, Yu Lu, Ashraf Aboulnaga, Michael Stonebraker, Ricardo Mayerhofer, Francisco Andrade
+- Institute: MIT, Qatar Computing Research Institute - HBKU, Urbana-Champaign, B2W Digital
+- Published at SIGMOD'18
+- Paper Link: <https://dl.acm.org/doi/abs/10.1145/3183713.3190650>
 
 ## Motivation
 

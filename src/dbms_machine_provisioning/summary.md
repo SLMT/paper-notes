@@ -20,3 +20,13 @@
 - VLDB'19 - iBTune: individualized buffer tuning for large-scale cloud databases
   - <https://dl.acm.org/doi/abs/10.14778/3339490.3339503>
   - Focus on tuning buffer size
+- VLDB'21 - Seagull: An Infrastructure for Load Prediction andOptimized Resource Allocation
+  - <http://www.vldb.org/pvldb/vol14/p154-poppe.pdf>
+  - Problem: to predict the load of a DBMS server and use the predicted info to decide when to backup the DB.
+  - Keys:
+    - Focuses on system design
+    - Assumes the target workload have periodical patterns
+    - Tried methods to predict workloads
+      - Singular Spectrum Analysis
+      - Feed-forward Networks
+      - Prophet: a software with a model proposed by Facebook to predict time series data with yearly, weekly, and daily patterns.

@@ -1,4 +1,4 @@
-# Hihooi: A Database Replication Middleware forScaling Transactional Databases Consistently
+# Hihooi: A Database Replication Middleware for Scaling Transactional Databases Consistently
 
 - Authors: Michael A. Georgiou, Aristodemos Paphitis, Michael Sirivianos, Herodotos Herodotou
 - Institute: Cyprus University of Technology, Limassol, Cyprus

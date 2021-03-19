@@ -12,3 +12,5 @@
 - [DBMS Query Processing](dbms_query_processing/summary.md)
 - [DBMS Scalability](dbms_scalability/summary.md)
   - [TKDE'20 - Hihooi](dbms_scalability/georgiou2020hihooi.md)
+- [Deterministic DBMS](deterministic_dbms/summary.md)
+  - [VLDB'20 - Aria](deterministic_dbms/lu2020aria.md)

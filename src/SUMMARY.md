@@ -15,3 +15,5 @@
   - [TKDE'20 - Hihooi](dbms_scalability/georgiou2020hihooi.md)
 - [Deterministic DBMS](deterministic_dbms/summary.md)
   - [VLDB'20 - Aria](deterministic_dbms/lu2020aria.md)
+- [DBMS + AI](dbms_with_ai/summary.md)
+  - [CIDR'19 - Query Optimizer through DL](dbms_with_ai/marcus2019dlquery.md)

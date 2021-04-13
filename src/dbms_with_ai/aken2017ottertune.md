@@ -18,6 +18,8 @@ To tune the configurations of a DBMS using ML models.
 
 ## Method
 
+![Overview](aken2017ottertune-figure3.png)
+
 ### Workload Characterization
 
 OtterTune collects the **internal** metrics because those metrics directly relate to the knobs and more predictable when tuning knobs.
@@ -44,7 +46,7 @@ Example Results:
 
 ![Picking Useful Metrics](aken2017ottertune-figure1.png)
 
-### Knobs Identification
+### Knob Identification
 
 - Use LASSO to evaluate the impact of each knobs
   - \\(X\\): knobs
@@ -59,7 +61,17 @@ Example Results:
 
 ![LASSO](aken2017ottertune-figure2.png)
 
-## Experiments
+### Automatic Tuner
+
+Steps
+
+1. Find the most similar workload in the past (workload mapping)
+   1. Build a matrix \\(X_m\\) for each metric \\(m\\) where \\(X_{mij}\\) represents the value of metric \\(m\\) when running the DBMS on workload \\(i\\) with configuration set \\(j\\)
+      - The values must be normalized.
+   2. Compute euclidean distance for the target workload \\(i\\) with other rows in the same matrix
+   3. Average the distance for each row/workload across matrixes as **scores**
+   4. Choose the workload id with the lowest score as the most similar workload
+2. Use Gaussian Process (GP) to predict the best configuration set
 
 ## Conclusion
 
@@ -71,4 +83,8 @@ Interesting insights
 ## Questions
 
 - How do they use the dependencies between knobs? Do those become features?
+  - Not sure
 - Do they use the variance given by Gaussian Process?
+  - They use the variance as the confidence level
+- Does OtterTune use any workload information such as queries or transactions for tuning?
+  - No

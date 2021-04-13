@@ -18,3 +18,4 @@
 - [DBMS + AI](dbms_with_ai/summary.md)
   - [SIGMOD'17 - OtterTune](dbms_with_ai/aken2017ottertune.md)
   - [CIDR'19 - Query Optimizer through DL](dbms_with_ai/marcus2019dlquery.md)
+  - [TKDE'20 - Database Meets AI: A Survey](dbms_with_ai/zhou2020dbaisurvey.md)

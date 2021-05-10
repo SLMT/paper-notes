@@ -14,6 +14,7 @@
   - [VLDB'19 - Star](dbms_scalability/lu2019star.md)
   - [TKDE'20 - Hihooi](dbms_scalability/georgiou2020hihooi.md)
 - [Deterministic DBMS](deterministic_dbms/summary.md)
+  - [VLDB'14 - Advantages and Disadvantages of Deterministic DBMS](deterministic_dbms/ren2014evaluation.md)
   - [VLDB'20 - Aria](deterministic_dbms/lu2020aria.md)
 - [DBMS + AI](dbms_with_ai/summary.md)
   - [SIGMOD'17 - OtterTune](dbms_with_ai/aken2017ottertune.md)

@@ -1,0 +1,2337 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Paper Notes</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="template.html">Template</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="dbms_machine_provisioning/summary.html"><strong aria-hidden="true">1.</strong> DBMS Workload Modeling &amp; Machine Provisioning</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dbms_machine_provisioning/sheikh2011bayesian.html"><strong aria-hidden="true">1.1.</strong> ICAC'11 - Modeling Workloads using Gaussian Process</a></li><li class="chapter-item expanded "><a href="dbms_machine_provisioning/taft2018pstore.html"><strong aria-hidden="true">1.2.</strong> SIGMOD'18 - P-Store</a></li></ol></li><li class="chapter-item expanded "><a href="dbms_data_partitioning/summary.html"><strong aria-hidden="true">2.</strong> DBMS Data Partitioning</a></li><li class="chapter-item expanded "><a href="dbms_query_processing/summary.html"><strong aria-hidden="true">3.</strong> DBMS Query Processing</a></li><li class="chapter-item expanded "><a href="dbms_scalability/summary.html"><strong aria-hidden="true">4.</strong> DBMS Scalability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dbms_scalability/lu2019star.html"><strong aria-hidden="true">4.1.</strong> VLDB'19 - Star</a></li><li class="chapter-item expanded "><a href="dbms_scalability/georgiou2020hihooi.html"><strong aria-hidden="true">4.2.</strong> TKDE'20 - Hihooi</a></li></ol></li><li class="chapter-item expanded "><a href="deterministic_dbms/summary.html"><strong aria-hidden="true">5.</strong> Deterministic DBMS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="deterministic_dbms/ren2014evaluation.html"><strong aria-hidden="true">5.1.</strong> VLDB'14 - Advantages and Disadvantages of Deterministic DBMS</a></li><li class="chapter-item expanded "><a href="deterministic_dbms/lu2020aria.html"><strong aria-hidden="true">5.2.</strong> VLDB'20 - Aria</a></li></ol></li><li class="chapter-item expanded "><a href="dbms_with_ai/summary.html"><strong aria-hidden="true">6.</strong> DBMS + AI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dbms_with_ai/aken2017ottertune.html"><strong aria-hidden="true">6.1.</strong> SIGMOD'17 - OtterTune</a></li><li class="chapter-item expanded "><a href="dbms_with_ai/marcus2019dlquery.html"><strong aria-hidden="true">6.2.</strong> CIDR'19 - Query Optimizer through DL</a></li><li class="chapter-item expanded "><a href="dbms_with_ai/zhou2020dbaisurvey.html"><strong aria-hidden="true">6.3.</strong> TKDE'20 - Database Meets AI: A Survey</a></li><li class="chapter-item expanded "><a href="dbms_with_ai/lin2021mb2.html"><strong aria-hidden="true">6.4.</strong> SIGMOD'21 - MB2</a></li><li class="chapter-item expanded "><a href="dbms_with_ai/hilprecht2022zeroshot.html"><strong aria-hidden="true">6.5.</strong> CIDR'22 - Zero-Shot Learning on DBMS</a></li><li class="chapter-item expanded "><a href="dbms_with_ai/sioulas2021roulette.html"><strong aria-hidden="true">6.6.</strong> SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning</a></li></ol></li><li class="chapter-item expanded "><a href="rl_to_rank/summary.html"><strong aria-hidden="true">7.</strong> Reinforcement Learning to Rank</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rl_to_rank/zhou2020rlirank.html"><strong aria-hidden="true">7.1.</strong> WWW'20 - RLIRank</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Paper Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="paper-notes"><a class="header" href="#paper-notes">Paper Notes</a></h1>
+<p>This is a collection of paper notes written by <a href="https://www.slmt.tw">Yu-Shan Lin</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="template"><a class="header" href="#template">Template</a></h1>
+<ul>
+<li>Authors: </li>
+<li>Institute: </li>
+<li>Published at </li>
+<li>Paper Link: </li>
+</ul>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<h2 id="motivation"><a class="header" href="#motivation">Motivation</a></h2>
+<h2 id="problem"><a class="header" href="#problem">Problem</a></h2>
+<h2 id="method"><a class="header" href="#method">Method</a></h2>
+<h2 id="experiments"><a class="header" href="#experiments">Experiments</a></h2>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<h2 id="questions"><a class="header" href="#questions">Questions</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dbms-machine-provisioning"><a class="header" href="#dbms-machine-provisioning">DBMS Machine Provisioning</a></h1>
+<ul>
+<li><a href="dbms_machine_provisioning/sheikh2011bayesian.html">ICAC'11 - A Bayesian Approach to Online Performance Modeling for Database Appliances using Gaussian Models</a>
+<ul>
+<li>Problem: modeling DBMS workloads using Gaussian Process</li>
+<li>Keys:
+<ul>
+<li>It only focuses on modeling workloads and does not propose any application.</li>
+<li>It demonstrate GP can predict quite accurate with small data set.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="dbms_machine_provisioning/taft2018pstore.html">SIGMOD'18 - P-Store: An Elastic Database System with Predictive Provisioning</a>
+<ul>
+<li>Motivation: previous work always react after an overloaded event happens.</li>
+<li>Problem: they propose to make machine provisioning decision by predicting the following workloads.</li>
+<li>Keys:
+<ul>
+<li>The target workload must be easy to predict.</li>
+<li>There can be a few distributed transactions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IEEE CloudCom'18 - DERP: A Deep Reinforcement Learning Cloud System for Elastic Resource Provisioning
+<ul>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/8590989">https://ieeexplore.ieee.org/abstract/document/8590989</a></li>
+<li>Motivation: previous work can not deal with large input space so we need a learning based method.</li>
+<li>Method: Uses a DQN RL agent to decide when to add/remove machines and how many machines are added/removed to a DBMS cluster.</li>
+<li>Key Points:
+<ul>
+<li>Targeting on NoSQL systems.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>VLDB'19 - iBTune: individualized buffer tuning for large-scale cloud databases
+<ul>
+<li><a href="https://dl.acm.org/doi/abs/10.14778/3339490.3339503">https://dl.acm.org/doi/abs/10.14778/3339490.3339503</a></li>
+<li>Focus on tuning buffer size</li>
+</ul>
+</li>
+<li>VLDB'21 - Seagull: An Infrastructure for Load Prediction andOptimized Resource Allocation
+<ul>
+<li><a href="http://www.vldb.org/pvldb/vol14/p154-poppe.pdf">http://www.vldb.org/pvldb/vol14/p154-poppe.pdf</a></li>
+<li>Problem: to predict the load of a DBMS server and use the predicted info to decide when to backup the DB.</li>
+<li>Keys:
+<ul>
+<li>Focuses on system design</li>
+<li>Assumes the target workload have periodical patterns</li>
+<li>Tried methods to predict workloads
+<ul>
+<li>Singular Spectrum Analysis</li>
+<li>Feed-forward Networks</li>
+<li>Prophet: a software with a model proposed by Facebook to predict time series data with yearly, weekly, and daily patterns.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-bayesian-approach-to-online-performance-modeling-for-database-appliances-using-gaussian-models"><a class="header" href="#a-bayesian-approach-to-online-performance-modeling-for-database-appliances-using-gaussian-models">A Bayesian Approach to Online Performance Modeling for Database Appliances using Gaussian Models</a></h1>
+<ul>
+<li>Authors: Muhammad Bilal Sheikh, Umar Farooq Minhas, Omar Zia Khan, Ashraf Aboulnaga, Pascal Poupart, David J Taylor</li>
+<li>Institute: University of Waterloo</li>
+<li>Published at ICAC'11</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/10.1145/1998582.1998603">https://dl.acm.org/doi/10.1145/1998582.1998603</a></li>
+</ul>
+<h2 id="background-1"><a class="header" href="#background-1">Background</a></h2>
+<ul>
+<li>Database Appliance
+<ul>
+<li>A VM with a pre-installed copy of a OS and a DBMS</li>
+<li>Easy to deploy</li>
+</ul>
+</li>
+</ul>
+<h2 id="motivation-1"><a class="header" href="#motivation-1">Motivation</a></h2>
+<ul>
+<li>DBA may need to predict workloads to decide how to allocate resources</li>
+<li>Previous work on this
+<ul>
+<li>Analytical models
+<ul>
+<li>Need a domain expert</li>
+<li>Specific to a particular DBMS</li>
+</ul>
+</li>
+<li>Experiment-driven
+<ul>
+<li>Method
+<ul>
+<li>Modeling workloads by sampling from query executions</li>
+<li>Use statistical models to fit the workloads</li>
+</ul>
+</li>
+<li>Problems
+<ul>
+<li>Any new change to the workloads make these previous methods need to collect new data and retrain their models.</li>
+<li>Hard to introduce prior knowledge to the models.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="problem-1"><a class="header" href="#problem-1">Problem</a></h2>
+<p>To model workloads with Gaussian Process and make it adapt to changing workloads fast.</p>
+<h3 id="formal-definition"><a class="header" href="#formal-definition">Formal Definition</a></h3>
+<p>Assumptions:</p>
+<ul>
+<li>Each query belongs to a particular query type \(Q_i\), where \(1 \le i \le T\).</li>
+<li>There are \(T\) types of queries.</li>
+<li>A mix of queries \(m_j\) is represented as a vector \(&lt;N_{1j},...,N_{Tj}&gt;\), where \(N_{ij}\) represents # of queries in type \(Q_i\).</li>
+<li>The total number of queries in a mix is less than \(M\), where \(M\) is defined by the DBA.</li>
+<li>The samples for the mix \(m_j\) is represented as \(S_j = &lt;m_j,r_{ij}&gt;\) where \(r_{ij}\) is the real response time for a query in type \(Q_i\) in mix \(m_j\).</li>
+</ul>
+<p>Goal:</p>
+<p>To find a function \(f(.)\) such that \( \hat{r}_{ij} = f(m_j, Q_i) \) where \( \hat{r}_{ij} \) is the estimated response time for a query in type \(Q_i\).</p>
+<h2 id="method-1"><a class="header" href="#method-1">Method</a></h2>
+<h3 id="main-idea"><a class="header" href="#main-idea">Main Idea</a></h3>
+<p>It maintains two models:</p>
+<ul>
+<li>Response Time Model
+<ul>
+<li>Given the current workload mix \(m_i\) and the target query type \(Q_i\), predict the response time.</li>
+</ul>
+</li>
+<li>Configuration Model
+<ul>
+<li>Given the current system configuration, predict the parameters of the response time model.</li>
+</ul>
+</li>
+</ul>
+<p>With these models, the system will not need to retrain for new system configs because it can predict the parameters from the configuration model.</p>
+<h3 id="system-overview"><a class="header" href="#system-overview">System Overview</a></h3>
+<p><img src="https://i.imgur.com/8jmV23I.png" alt="" /></p>
+<h3 id="each-components"><a class="header" href="#each-components">Each Components</a></h3>
+<h4 id="generating-training-data"><a class="header" href="#generating-training-data">Generating Training Data</a></h4>
+<p>Two ways:</p>
+<ul>
+<li>Uniformly sampling # of queries for each query type
+<ul>
+<li>This will generating a data set with a small variance and its total load would concentrate on \(\frac{M}{2}\). Not good for learning.</li>
+</ul>
+</li>
+<li>Uniformly sampling (the total number of queries, the number of different types of queries)</li>
+</ul>
+<h4 id="modeling-response-time"><a class="header" href="#modeling-response-time">Modeling Response Time</a></h4>
+<p>Proposed Two Types of Models</p>
+<ul>
+<li>Linear Gaussian Models
+<ul>
+<li>Input: could be
+<ol>
+<li>the current total load (# of queries) \(l\)<br />
+=&gt; Linear Load Model</li>
+<li>the # of queries for each query type \(m = &lt;N_{1},...,N_{T}&gt;\)<br />
+=&gt; Linear Query Mix Model</li>
+</ol>
+</li>
+<li>Output: the response time \(r\)</li>
+<li>Model: \(P(r|l;\theta) = \mathcal{N}(\beta_0 + \beta_1 l, \sigma^2)\)</li>
+<li>How to learn? Maximum Likelihood Estimation (MLE)</li>
+</ul>
+</li>
+<li>Gaussian Process Models
+<ul>
+<li>Input: could be
+<ol>
+<li>the current total load (# of queries) \(l\)<br />
+=&gt; Gaussain Process Load Model (GPLM)</li>
+<li>the # of queries for each query type \(m = &lt;N_{1},...,N_{T}&gt;\)<br />
+=&gt; Gaussian Process Mix Model (GPMM)</li>
+<li>Combination of total load \(l\) and mix \(m\)<br />
+=&gt; Gaussian Process Mix + Load Model (GPMLM)</li>
+</ol>
+</li>
+<li>Output: a gaussian distribution of the response time \(r\)</li>
+<li>Model: Gaussain Process
+<ul>
+<li>Mean Functions:
+<ol>
+<li>0 mean</li>
+<li>linear mean function: \(mean(x) = \beta_0 + \beta_1 x_1 + ... + \beta_T x_T\)</li>
+</ol>
+</li>
+<li>Kernel Functions:
+<ol>
+<li>Squared Exponential Function (SE, i.e. RBF Kernel)<br />
+$$
+k(x, x') = \sigma^2 exp(\frac{-||x - x'||^2}{2 \eta ^ 2 I})
+$$</li>
+<li>Rational Quadratic Function (RQ)
+$$
+k(x, x') = \sigma^2 [1 + \frac{||x - x'||^2}{2 \alpha \eta ^ 2 I}] ^ {-\alpha}
+$$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>How to find the hyper-parameters? Same as linear models, Maximum Likelihood Estimation (MLE).</li>
+</ul>
+</li>
+</ul>
+<h4 id="modeling-hyper-parameters-of-a-response-time-model"><a class="header" href="#modeling-hyper-parameters-of-a-response-time-model">Modeling Hyper-parameters of a Response Time Model</a></h4>
+<p>They found that</p>
+<ul>
+<li>A different configuration of the system needs a different set of hyper-parameters (i.e. a different model)</li>
+<li>If a configuration do not appear in the training data set, the model may not learn well.</li>
+</ul>
+<p>So, we need a model to predict hyper-parameters for GP models.</p>
+<ul>
+<li>Input:
+<ul>
+<li>Mean of recent response time: \(R_{MEAN}\)</li>
+<li>STD of recent response time: \(R_{SD}\)</li>
+<li>Buffer Pool Size: \(BP\)</li>
+<li>CPU Count: \(CPU_{NUM}\)</li>
+<li>CPU Frequency (in MHz): \(CPU\)</li>
+<li>Memory Size: \(MEM\)</li>
+</ul>
+</li>
+<li>Output: each hyper-parameter used by GP models (one model per hyper-parameter)</li>
+<li>Model: should be Gaussain Process, but the paper does not say explictly
+<ul>
+<li>Mean and kernel functions are unknown.</li>
+</ul>
+</li>
+</ul>
+<h2 id="experiments-1"><a class="header" href="#experiments-1">Experiments</a></h2>
+<h3 id="model-accuracy"><a class="header" href="#model-accuracy">Model Accuracy</a></h3>
+<p>Effect of Buffer Pool Size (Figure 3)</p>
+<ul>
+<li>It shows the linear models work poorer than GP models in all conditions, especially when the database fit partially in the buffer pool.</li>
+</ul>
+<p>Effectiveness under overload (Figure 4)</p>
+<ul>
+<li>It shows the GP models able to capture the variance of response time even if the system is overloaded and the variance is large.</li>
+</ul>
+<p>Overall Accuracy (Figure 5)</p>
+<ul>
+<li>It shows GPMLM (0, RQ) works well in all tests.</li>
+</ul>
+<h3 id="online-adaptability"><a class="header" href="#online-adaptability">Online Adaptability</a></h3>
+<p>Online Costs</p>
+<ul>
+<li>Linear models work poorly so it does not adapt it to the online setting.</li>
+<li>GP models with linear mean have very high cost since the mean function has \(T + 1\) hyper-parameters to learn.
+<ul>
+<li>Takes 1 hour to learn for 22 query types with 500 samples/type.</li>
+</ul>
+</li>
+<li>GP models with 0 mean and RQ kernel works best.
+<ul>
+<li>Takes 4~7 minutes to learn for 22 query types with 500 samples/type.</li>
+</ul>
+</li>
+</ul>
+<p>Adapting to Dynamic Configurations (Figure 6)</p>
+<ul>
+<li>This experiment evaluates how the model performs when the configuration changes.</li>
+<li>If each time the configuration changes and the model simply throw all samples, the results show it suffer from high error rate in the beginning.</li>
+<li>If the model does not throw the samples but keeps them, the results show the error rate would be much lower at the same time.</li>
+<li>The results also show that the online models work similar to the models pre-trained using the same workload.</li>
+</ul>
+<p>Adapting to Dynamic Workloads (Figure 7)</p>
+<ul>
+<li>This experiment evaluates how the model performs when new query types appear in the workload.</li>
+<li>The model that keeps the old data while collecting new data works best.</li>
+</ul>
+<h4 id="model-robustness"><a class="header" href="#model-robustness">Model Robustness</a></h4>
+<p>Impact of New Queries (Figure 8)</p>
+<ul>
+<li>GPMLM(0, RQ) works best with 4% increase in precentage error when there are 5 new query types.
+<ul>
+<li>This is because GPMLM also models the total number of queries which is a useful info for predicting response time.</li>
+</ul>
+</li>
+</ul>
+<p>Online Model Convergence (Figure 9)</p>
+<ul>
+<li>This experiment tests how well GPCM works when a new query type appear</li>
+<li>Setting the hyper-parameters to 0 works worst.</li>
+<li>Setting the hyper-parameters by averaging over existing parameters work quite well.
+<ul>
+<li>This shows that there are correlation between these parameters</li>
+</ul>
+</li>
+<li>Setting the hyper-parameters using GPCM works best.</li>
+<li>It also shows that 100 samples are enoguh for a good GP model.</li>
+</ul>
+<p>Configuration Model Accuarcy (Figure 10)</p>
+<ul>
+<li>I don't understand this...</li>
+</ul>
+<h3 id="notable-references"><a class="header" href="#notable-references">Notable References</a></h3>
+<ul>
+<li>Use Gaussian Process to model workloads
+<ul>
+<li>EDBT'11 - Predicting completion times of batch query workloads using interaction-aware models and simulation.</li>
+<li>SIGMOD'10 - iTuned: a tool for configuring and visualizing database parameters.</li>
+</ul>
+</li>
+</ul>
+<h3 id="conclusion-1"><a class="header" href="#conclusion-1">Conclusion</a></h3>
+<ul>
+<li>Pros
+<ul>
+<li>GP's advantages
+<ul>
+<li>Can introduce prior knowledge (distributions)</li>
+<li>Can provide confidence intervals for each prediction</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>It does not propose any application on DBMSs.</li>
+</ul>
+</li>
+</ul>
+<h3 id="questions-1"><a class="header" href="#questions-1">Questions</a></h3>
+<ul>
+<li>Why not just use online-learning methods to overcome dynamic workloads?</li>
+<li>It seems like it assumes that every query in the same type has the same response time or at least similiar time. Is this a reasonable assumption?</li>
+<li>How does the second way of sampling decides the ratio of number of queries between each type when generating training data?</li>
+<li>What is the difference between the kernel functions that this paper uses?</li>
+<li>Why is training the configuration model more reasonable than training a single response time model?
+<ul>
+<li>because the response time model can only work for one type of system configuration.</li>
+<li>the space of system configurations is much smaller than the space of possible workloads.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="p-store-an-elastic-database-system-with-predictive-provisioning"><a class="header" href="#p-store-an-elastic-database-system-with-predictive-provisioning">P-Store: An Elastic Database System with Predictive Provisioning</a></h1>
+<ul>
+<li>Authors: Rebecca Taft, Nosayba El-Sayed, Marco Serafini, Yu Lu, Ashraf Aboulnaga, Michael Stonebraker, Ricardo Mayerhofer, Francisco Andrade</li>
+<li>Institute: MIT, Qatar Computing Research Institute - HBKU, Urbana-Champaign, B2W Digital</li>
+<li>Published at SIGMOD'18</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/abs/10.1145/3183713.3190650">https://dl.acm.org/doi/abs/10.1145/3183713.3190650</a></li>
+</ul>
+<h2 id="motivation-2"><a class="header" href="#motivation-2">Motivation</a></h2>
+<p>DBMS machine provisioning is an important topic that controls the elasiticity and resource utilization of a distributed DBMS.</p>
+<p>However, existing approaches always react slower than the actual demand.</p>
+<h2 id="problem-2"><a class="header" href="#problem-2">Problem</a></h2>
+<p>To design a system online reconfiguration strategy that reacts before the system overloaded such that:</p>
+<ul>
+<li>the resource used by the system is minimized</li>
+<li>the reconfiguration does not violate SLA.</li>
+</ul>
+<p>Input:</p>
+<ul>
+<li>A prediction to the future workload</li>
+<li>The capacity of a machine</li>
+</ul>
+<p>Output:</p>
+<ul>
+<li>When to add/remove machines</li>
+<li>How many machines to be added or removed</li>
+</ul>
+<p>Assumptions:</p>
+<ul>
+<li>The target workload has periodic patterns that are easy to be predicted.</li>
+<li>There is no spike in the workload.</li>
+<li>Only a few distributed transactions.</li>
+</ul>
+<p>This goal can be visualized as follows:</p>
+<p><img src="dbms_machine_provisioning/taft2018pstore-figure1.png" alt="P-Store Goal" /></p>
+<h2 id="method-2"><a class="header" href="#method-2">Method</a></h2>
+<p>Two Parts:</p>
+<ul>
+<li>Workload Prediction</li>
+<li>Allocation Decision</li>
+</ul>
+<h3 id="workload-prediction"><a class="header" href="#workload-prediction">Workload Prediction</a></h3>
+<p>Models the workload as a time series data and uses Sparse Periodic Auto Regression to predict [USENIX'08]. </p>
+<p>Models the future workload at a time as a sum of a long-term pattern (past n days) and a short-term pattern (past m minutes).</p>
+<h3 id="allocation-decision"><a class="header" href="#allocation-decision">Allocation Decision</a></h3>
+<p>Use DP.</p>
+<h2 id="comments"><a class="header" href="#comments">Comments</a></h2>
+<ul>
+<li>Pros
+<ul>
+<li>Works well on predictable workloads</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>The workload must be easy to predict</li>
+<li>The database must be easy to partition so that P-Store won't need to consider the impact of distributed transactions.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dbms-data-partitioning"><a class="header" href="#dbms-data-partitioning">DBMS Data Partitioning</a></h1>
+<ul>
+<li>PEN'19 - Using machine learning for intelligent shard sizing on the cloud
+<ul>
+<li><a href="http://pen.ius.edu.ba/index.php/pen/article/view/332">http://pen.ius.edu.ba/index.php/pen/article/view/332</a></li>
+<li>Problem: decides data partitioning by predicting the latency of a DBMS application with a given data partitioning strategy.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dbms-query-processing"><a class="header" href="#dbms-query-processing">DBMS Query Processing</a></h1>
+<ul>
+<li>SIGMOD'20 - Thrifty Query Execution via Incrementability
+<ul>
+<li><a href="https://dl.acm.org/doi/abs/10.1145/3318464.3389756">https://dl.acm.org/doi/abs/10.1145/3318464.3389756</a></li>
+<li>Problem: to study how to efficiently evaluate a query even before all the data are ready.
+<ul>
+<li>Then, the query can be executed faster when all data are set.</li>
+</ul>
+</li>
+<li>Motivation: previous work only focus on select-project-join-aggregate queries, but not more complex queries such as nested queries and outer/anti-joins.</li>
+<li>Assumption: data arrival rate can be predicted from historical statistics</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dbms-scalability"><a class="header" href="#dbms-scalability">DBMS Scalability</a></h1>
+<ul>
+<li><a href="dbms_scalability/lu2019star.html">VLDB'19 - STAR: Scaling Transactions through Asymmetric Replication</a></li>
+<li><a href="dbms_scalability/georgiou2020hihooi.html">TKDE'20 - Hihooi: A Database Replication Middleware forScaling Transactional Databases Consistently</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="star-scaling-transactions-through-asymmetric-replication"><a class="header" href="#star-scaling-transactions-through-asymmetric-replication">STAR: Scaling Transactions through Asymmetric Replication</a></h1>
+<ul>
+<li>Authors: Yi Lu, Xiangyao Yu, Samuel Madden</li>
+<li>Institute: MIT CSAIL</li>
+<li>Published at VLDB'19</li>
+<li>Paper Link: <a href="http://www.vldb.org/pvldb/vol12/p1316-lu.pdf">http://www.vldb.org/pvldb/vol12/p1316-lu.pdf</a></li>
+</ul>
+<h2 id="motivation-3"><a class="header" href="#motivation-3">Motivation</a></h2>
+<p>Cross-partitions transactions hurt scalability of distributed database systems due to two-phase commit.</p>
+<h2 id="problem-3"><a class="header" href="#problem-3">Problem</a></h2>
+<p>To design a better execution scheme to avoid executing cross-partition transactions in a distributed way.</p>
+<h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
+<ul>
+<li>A partitioned distributed DBMS</li>
+<li>One of the nodes has enough memory capacity for a complete replica.</li>
+</ul>
+<h2 id="method-3"><a class="header" href="#method-3">Method</a></h2>
+<ol>
+<li>Separate the transactions into two categories:
+<ul>
+<li>Single-partition transactions</li>
+<li>Cross-partitions transactions</li>
+</ul>
+</li>
+<li>Separate machines in the cluster into two categories:
+<ul>
+<li>Partial-replica machines</li>
+<li>Full-replica machines</li>
+</ul>
+</li>
+<li>Then, divide the execution into two phases:
+<ul>
+<li>Partitioned Phase
+<ul>
+<li>Executes only single-partition transactions.</li>
+<li>Each partition has a partial-replica machine as its primary machine.</li>
+<li>A thread takes the responsibility to execute single-partition transactions on a partition.</li>
+</ul>
+</li>
+<li>Single-master Phase
+<ul>
+<li>Executes only cross-partition transactions.</li>
+<li>A full-replica machine will be the master node for all the transactions.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="conclusion-2"><a class="header" href="#conclusion-2">Conclusion</a></h2>
+<ul>
+<li>Pros
+<ul>
+<li>Eliminates distributed transactions</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>This method assumes that there is a machine which has high computing power to execute transactions and high memory capacity to store all the data in memory.</li>
+<li>During phase transition, it requests all participants to synchronize with each others. This may be unrealistic for cross-WAN settings.
+<ul>
+<li>On the other hand, Calvin only needs a part of machines to reach a consensus and replicates inputs.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="questions-2"><a class="header" href="#questions-2">Questions</a></h2>
+<ul>
+<li>Q: How about deterministic DBMSs?
+<ul>
+<li>The paper argues that the total ordering for deterministic DBMSs is costly.</li>
+<li>But, is the replication fence of STAR not costly?</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hihooi-a-database-replication-middleware-for-scaling-transactional-databases-consistently"><a class="header" href="#hihooi-a-database-replication-middleware-for-scaling-transactional-databases-consistently">Hihooi: A Database Replication Middleware for Scaling Transactional Databases Consistently</a></h1>
+<ul>
+<li>Authors: Michael A. Georgiou, Aristodemos Paphitis, Michael Sirivianos, Herodotos Herodotou</li>
+<li>Institute: Cyprus University of Technology, Limassol, Cyprus</li>
+<li>Published at TKDE'20</li>
+<li>Paper Link: <a href="https://ieeexplore.ieee.org/abstract/document/9068420">https://ieeexplore.ieee.org/abstract/document/9068420</a></li>
+</ul>
+<h2 id="motivation-4"><a class="header" href="#motivation-4">Motivation</a></h2>
+<p>Previous appraoches focus on scaling-out by data partitioning, but most of applications do not have large amount of data. It is not necssary to store data in multiple machines.</p>
+<p>They propose to scale-out by replication in a master-slave and asychronous fasion.</p>
+<h2 id="problem-4"><a class="header" href="#problem-4">Problem</a></h2>
+<p>To maintain a master-slave architecture on a DBMS system with high read scalability.</p>
+<p>Main challenge: How to replicate data efficiently and ensure strong consistency?</p>
+<h2 id="method-4"><a class="header" href="#method-4">Method</a></h2>
+<p>(Quick read through)</p>
+<p>Statement replication:</p>
+<ol>
+<li>Exceutes the SQL in the primary DB</li>
+<li>Record the execution order of each statement</li>
+<li>Replay the statements in the same ordre in backup DBs.</li>
+</ol>
+<h2 id="experiments-2"><a class="header" href="#experiments-2">Experiments</a></h2>
+<p>(Not check)</p>
+<h2 id="conclusion-3"><a class="header" href="#conclusion-3">Conclusion</a></h2>
+<p>Pro</p>
+<ul>
+<li>Middleware approaches</li>
+<li>Scales well for read-heavy workloads</li>
+</ul>
+<p>Con</p>
+<ul>
+<li>Not scale for write-heavy workloads since every write transactions must be executed in the primary DB once.</li>
+<li>Only suitable for the cast that data can be stored in a single machine</li>
+</ul>
+<p>Compared to deterministic DBMSs</p>
+<ul>
+<li>No need to avoid ad-hoc queries.</li>
+<li>No need to know read/write-set in advance.</li>
+<li>However, deterministic DBMSs can deal with more general OLTP workloads.</li>
+</ul>
+<h2 id="questions-3"><a class="header" href="#questions-3">Questions</a></h2>
+<ol>
+<li>How to ensure low latency?
+<ul>
+<li>By using asychronous architecture to avoid 2PC.</li>
+</ul>
+</li>
+<li>The master is still a bottleneck when using a master-slave architecture.
+<ul>
+<li>They assume most of transactions are read transactions, which can be routed to slave nodes.</li>
+</ul>
+</li>
+<li>Why do the experiments show that Hihooi can still scale on write-heavy workloads?</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="deterministic-dbms"><a class="header" href="#deterministic-dbms">Deterministic DBMS</a></h1>
+<ul>
+<li><a href="deterministic_dbms/lu2020aria.html">VLDB'20 - Aria: A Fast and Practical Deterministic OLTP Database</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vldb14---an-evaluation-of-the-advantages-and-disadvantages-of-deterministic-database-systems"><a class="header" href="#vldb14---an-evaluation-of-the-advantages-and-disadvantages-of-deterministic-database-systems">VLDB'14 - An evaluation of the advantages and disadvantages of deterministic database systems</a></h1>
+<ul>
+<li>Authors: Kun Ren, Alexander Thomson, Daniel J. Abadi</li>
+<li>Institute: Northestern Polytechnical University, Yale University</li>
+<li>Published at VLDB'14</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/10.14778/2732951.2732955">https://dl.acm.org/doi/10.14778/2732951.2732955</a></li>
+</ul>
+<h2 id="goal"><a class="header" href="#goal">Goal</a></h2>
+<p>To evaluate and compare deterministic DBMSs and non-deterministic DBMSs in different settings and workloads, in order to find out where to use deterministic DBMSs is the best.</p>
+<h2 id="implementation-details"><a class="header" href="#implementation-details">Implementation Details</a></h2>
+<h3 id="deterministic-dbmss"><a class="header" href="#deterministic-dbmss">Deterministic DBMSs</a></h3>
+<ul>
+<li>Use VLL protocol by default</li>
+<li>1 thread for acquiring locks and 4 threads for processing transactions</li>
+</ul>
+<h3 id="non-deterministic-dbmss"><a class="header" href="#non-deterministic-dbmss">Non-deterministic DBMSs</a></h3>
+<ul>
+<li>5 threads are used for processing transactions
+<ul>
+<li>A thread can process multiple transactions at once, if most of transactions are waiting for network messages</li>
+</ul>
+</li>
+<li>Lock-based protocol
+<ul>
+<li>Use wait-for graph to detect distributed deadlocks</li>
+</ul>
+</li>
+<li>Uses two phase commit to ensure strong consistency</li>
+</ul>
+<h2 id="key-observations"><a class="header" href="#key-observations">Key Observations</a></h2>
+<ul>
+<li>Lock acquisition time for each transaction in deterministic DBMSs
+<ul>
+<li>30% for short transactions (1 read/write action for an item)</li>
+<li>16% for long transactions</li>
+</ul>
+</li>
+<li>VLL protocol is useful only when lock acquisition is a bottleneck.</li>
+<li>Two phase commit makes a non-deterministic DBMS perform poorly when there are many distributed transactions.
+<ul>
+<li>About 30% in an extreme case.</li>
+</ul>
+</li>
+<li>Distributed deadlocks makes a non-deterministic DBMS perform poorly when both the number of distributed transactions and the contention are high. (Figure 1, Figure 2)</li>
+<li>How many nodes involve in a distributed transaction does not affect the performance difference between determinisitic and non-deterministic DBMSs. (Figure 3)</li>
+<li>A non-deterministic DBMS can utilize CPU resource more when there is no distributed transaction with TPC-C because the overhead of handling distributed locking and deadlocks is eliminiated. (Figure 4)</li>
+<li>It is often impossible for machines to get very far ahead of the slowest machine, since new transactions may have data dependencies on previous ones that access data on slow machines. (Figure 5 (a))
+<ul>
+<li>A non-deterministic DBMS can reorder transactions on demend to avoid this problem.</li>
+</ul>
+</li>
+<li>The flexibility of non-deterministic DBMSs does not yield much benefit in a cluster with slow machines as we expected. (Figure 5 (a))
+<ul>
+<li>We can optimize non-determinitic DBMSs by aborting transactions (70% of local transactions).</li>
+</ul>
+</li>
+<li>The performance cost of OLLP are independent of the performance cost of processing distributed transactions. (Figure 6)</li>
+<li>For most real-world scenario, OLLP yields very few transaction restarts. (Figure 6)</li>
+<li>A deterministic DBMS still scales better than a non-deterministic DBMS even on a high contention scenario because the non-deterministic DBMS needs to handle distributed deadlocks. (Figure 8)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="aria-a-fast-and-practical-deterministic-oltp-database"><a class="header" href="#aria-a-fast-and-practical-deterministic-oltp-database">Aria: A Fast and Practical Deterministic OLTP Database</a></h1>
+<ul>
+<li>Authors: Yi Lu, Xiangyao Yu, Lei Cao, Samuel Madden</li>
+<li>Institute: MIT</li>
+<li>Published at VLDB'20</li>
+<li>Paper Link: <a href="http://vldb.org/pvldb/vol13/p2047-lu.pdf">http://vldb.org/pvldb/vol13/p2047-lu.pdf</a>
+<ul>
+<li>Video: <a href="https://www.youtube.com/watch?v=DvgMjPPB134">https://www.youtube.com/watch?v=DvgMjPPB134</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="background-2"><a class="header" href="#background-2">Background</a></h2>
+<p>Deterministic DBMS show great potential for optimizations in transaction processing.</p>
+<h2 id="motivation-5"><a class="header" href="#motivation-5">Motivation</a></h2>
+<p>Currently, deterministic DBMSs all request the input transaction requests to provide their read-sets and write-sets. If not, they will need to execute the transactions once to determine their read-/write-sets.</p>
+<h2 id="problem-5"><a class="header" href="#problem-5">Problem</a></h2>
+<p>To design a concurrency control mechanism without knowing read-sets and write-sets while ensuring deterministic execution.</p>
+<h2 id="method-5"><a class="header" href="#method-5">Method</a></h2>
+<ul>
+<li>Main Idea: Batch execution with barriers
+<ul>
+<li>Execution phase:
+<ul>
+<li>Executes one batch of transactions at a time.</li>
+<li>Every transaction runs in parallel, reads from the same snapshot, and writes to its local buffer.</li>
+<li>Updates to indices are also buffered, so there is no phantom due to index updates.</li>
+</ul>
+</li>
+<li>Commit phase:
+<ul>
+<li>To commit a transaction, it must wait until all other transactions finish execution as well. (barrier)</li>
+<li>If there is a WW, RW, or WR conflict with earlier transaction, aborts and reschedules the later transaction.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optimization: Deterministic Reordering
+<ul>
+<li>Uses a relaxed check while deciding aborts:
+<ul>
+<li>Aborts a transaction only if:
+<ul>
+<li>It has WW conflict with an earlier transaction.</li>
+<li>Or, it has at least one RW conflict and also at least one WR conflict with earlier transactions at the same time.
+<ul>
+<li>This rule prevents cycles in the dependency graph. (proved in Section 5.3)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optimization: Fallback Phase
+<ul>
+<li>If too many transactions are aborted, add a fallback phase after the commit phase.</li>
+<li>The fallback phase will execute the aborted transactions in the Calvin fashion.
+<ul>
+<li>The key is that we have known the read-sets and write-sets of the aborted transactions because the system has executed them once.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="experiments-3"><a class="header" href="#experiments-3">Experiments</a></h2>
+<h3 id="my-expectation"><a class="header" href="#my-expectation">My Expectation</a></h3>
+<ul>
+<li>Aira works well in low contention workloads but poorly in high contention workloads.
+<ul>
+<li>It works actually ok in high contention workloads since it has fallback strategies.</li>
+</ul>
+</li>
+</ul>
+<h3 id="experiment-summary"><a class="header" href="#experiment-summary">Experiment Summary</a></h3>
+<ul>
+<li>8.2 YCSB
+<ul>
+<li>Aira works great since the keys of YCSB transactions are drawn from a uniform distribution.</li>
+</ul>
+</li>
+<li>8.3 Scheduling Overhead
+<ul>
+<li>Aira has almost no scheduling overhead since the only overhead is to book-keeping writes in a reservation table.</li>
+</ul>
+</li>
+<li>8.4 Effectiveness of Deterministic Reordering
+<ul>
+<li>The performance of Aira goes down as the workload becomes more skew, however, Aira still performs better than Calvin thanks to fallback phases.</li>
+<li>Aira with deterministic reordering also shows its effectiveness compared to Aira without DR.</li>
+</ul>
+</li>
+<li>8.5 TPC-C
+<ul>
+<li>Interestingly, this experiment shows how contention affects Aira significantly in a standard OLTP benchmarks.</li>
+</ul>
+</li>
+<li>8.6 Distributed Transactions
+<ul>
+<li>Aira basically outperforms all baselines no matter how many distributed transactions are there.</li>
+<li>However, note that the contention in the TPC-C setting is extremely low, which gives Aira a big advantage.</li>
+</ul>
+</li>
+<li>8.7 Scalability
+<ul>
+<li>Aira scales well.</li>
+</ul>
+</li>
+</ul>
+<h2 id="conclusion-4"><a class="header" href="#conclusion-4">Conclusion</a></h2>
+<p>Pros</p>
+<ul>
+<li>It won't need read-sets and write-sets for deterministic execution.</li>
+<li>It performs much better than Calvin in low contention workloads.</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Aborts many transactions in high contention workloads.</li>
+<li>Barriers between batches leads to slow down the entire transaction execution when transaction lengths are imbalanced.</li>
+</ul>
+<h2 id="questions-4"><a class="header" href="#questions-4">Questions</a></h2>
+<ul>
+<li>Is that possible to use wound-wait or wait-die 2PL to achieve the same effect?
+<ul>
+<li>No, this may lead to nondeterministic execution since there is no barrier.</li>
+</ul>
+</li>
+<li>The system aborts all the transactions that conflict with the earlier transactions in the same batch. So, does this mean that we better run this system in a low contention workloads?
+<ul>
+<li>Yes. See experiments in Section 8.5.</li>
+</ul>
+</li>
+<li>How about long transactions that do not have conflicts with others? Does Aria suit the workloads with these transactions?
+<ul>
+<li>Figure 5 verifies this concern. If there are a few long transactions in a batch, it will greatly slow down the system.</li>
+</ul>
+</li>
+<li>Why do they need barriers?
+<ul>
+<li>Consider the case that T1 does not run at all and T3 starts to commit in Example 1 of the paper. T3 may not find out T1 does not run since the system does not have T1's write-set. This makes the database state nondeterministic.</li>
+<li>It also makes all transactions can run in parallel during the commit phase since all information that need to be checked are set during the execution phase.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dbms--ai"><a class="header" href="#dbms--ai">DBMS + AI</a></h1>
+<ul>
+<li><a href="dbms_with_ai/aken2017ottertune.html">SIGMOD'17 - Automatic Database Management System Tuning Through Large-scale Machine Learning</a></li>
+<li><a href="dbms_with_ai/marcus2019dlquery.html">CIDR'19 - Towards a Hands-Free Query Optimizer through Deep Learning</a></li>
+<li><a href="dbms_with_ai/zhou2020dbaisurvey.html">TKDE'20 - Database Meets AI: A Survey</a></li>
+<li><a href="dbms_with_ai/hilprecht2022zeroshot.html">CIDR'22 - One Model to Rule them All: Towards Zero-Shot Learning for Databases</a></li>
+</ul>
+<h2 id="self-driving-dbmss"><a class="header" href="#self-driving-dbmss">Self-Driving DBMSs</a></h2>
+<ul>
+<li><a href="dbms_with_ai/lin2021mb2.html">SIGMOD'21 - MB2: Decomposed Behavior Modeling for Self-Driving Database Management Systems</a></li>
+</ul>
+<h2 id="multi-query-execution"><a class="header" href="#multi-query-execution">Multi-Query Execution</a></h2>
+<ul>
+<li><a href="dbms_with_ai/sioulas2021roulette.html">SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="automatic-database-management-system-tuning-through-large-scale-machine-learning"><a class="header" href="#automatic-database-management-system-tuning-through-large-scale-machine-learning">Automatic Database Management System Tuning Through Large-scale Machine Learning</a></h1>
+<ul>
+<li>Authors: Dana Van Aken, Andrew Pavlo, Geoffrey J. Gordon, Bohan Zhang</li>
+<li>Institute: CMU, Peking University</li>
+<li>Published at SIGMOD'17</li>
+<li>Paper Link: <a href="http://www.cs.cmu.edu/%7Epavlo/papers/p1009-van-aken.pdf">http://www.cs.cmu.edu/~pavlo/papers/p1009-van-aken.pdf</a></li>
+</ul>
+<h2 id="problem-6"><a class="header" href="#problem-6">Problem</a></h2>
+<p>To tune the configurations of a DBMS using ML models.</p>
+<h3 id="assumptions-1"><a class="header" href="#assumptions-1">Assumptions</a></h3>
+<ul>
+<li>The tuner must have administrative privileges to modify the DBMS's configurations.</li>
+<li>The cost of restarting a DBMS is ignored.</li>
+<li>The physical design is reasonable.
+<ul>
+<li>Proper indexes, materialized views, other database elements have been installed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="method-6"><a class="header" href="#method-6">Method</a></h2>
+<p><img src="dbms_with_ai/aken2017ottertune-figure3.png" alt="Overview" /></p>
+<h3 id="workload-characterization"><a class="header" href="#workload-characterization">Workload Characterization</a></h3>
+<p>OtterTune collects the <strong>internal</strong> metrics because those metrics directly relate to the knobs and more predictable when tuning knobs.</p>
+<ul>
+<li>the number of pages read/writes</li>
+<li>query cache utilization</li>
+<li>locking overhead</li>
+</ul>
+<h4 id="how-to-pick-up-useful-metrics"><a class="header" href="#how-to-pick-up-useful-metrics">How to Pick Up Useful Metrics</a></h4>
+<p>Some metrics may redundant because</p>
+<ul>
+<li>they are the same but in different units (MB/KB...)</li>
+<li>they are highly correlated</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>Build a matrix \(X\) where \(X_{ij}\) represents the value of metric \(i\) on configuration set \(j\)</li>
+<li>Performs Factor Analysis to reduce the dimension of \(X\) to \(U\) where \(U_{ij}\) represents the value of metric \(i\) on the \(j\)-th factor</li>
+<li>Performs k-means clustering and pick up only the most representative metric in each cluster
+<ul>
+<li>\(K\) is determined by a heuristic algorithm without human intervention</li>
+</ul>
+</li>
+</ol>
+<p>Example Results:</p>
+<p><img src="dbms_with_ai/aken2017ottertune-figure1.png" alt="Picking Useful Metrics" /></p>
+<h3 id="knob-identification"><a class="header" href="#knob-identification">Knob Identification</a></h3>
+<ul>
+<li>Use LASSO to evaluate the impact of each knobs
+<ul>
+<li>\(X\): knobs</li>
+<li>\(y\): metrics</li>
+<li>The most common feature selection algorithm</li>
+<li>Computationally efficient</li>
+</ul>
+</li>
+<li>Includes polynomial features to test if there is dependency between two knobs
+<ul>
+<li>For example, product &quot;Buffer Pool Size&quot; and &quot;Log Buffer Size&quot; as a feature to see if LASSO pick up this feature</li>
+</ul>
+</li>
+<li>Use incremental approach (gradually increase the number of selected knobs/features and check the effectiveness)</li>
+</ul>
+<p>Example Results:</p>
+<p><img src="dbms_with_ai/aken2017ottertune-figure2.png" alt="LASSO" /></p>
+<h3 id="automatic-tuner"><a class="header" href="#automatic-tuner">Automatic Tuner</a></h3>
+<p>Steps</p>
+<ol>
+<li>Find the most similar workload in the past (workload mapping)
+<ol>
+<li>Build a matrix \(X_m\) for each metric \(m\) where \(X_{mij}\) represents the value of metric \(m\) when running the DBMS on workload \(i\) with configuration set \(j\)
+<ul>
+<li>The values must be normalized.</li>
+</ul>
+</li>
+<li>Compute euclidean distance for the target workload \(i\) with other rows in the same matrix</li>
+<li>Average the distance for each row/workload across matrixes as <strong>scores</strong></li>
+<li>Choose the workload id with the lowest score as the most similar workload</li>
+</ol>
+</li>
+<li>Use Gaussian Process (GP) to predict the best configuration set</li>
+</ol>
+<h2 id="conclusion-5"><a class="header" href="#conclusion-5">Conclusion</a></h2>
+<p>Interesting insights</p>
+<ul>
+<li>Uses not only external metrics but also internal metrics for evaluating the performance of a configuration</li>
+<li>The way of picking up the useful metrics</li>
+</ul>
+<h2 id="questions-5"><a class="header" href="#questions-5">Questions</a></h2>
+<ul>
+<li>How do they use the dependencies between knobs? Do those become features?
+<ul>
+<li>Not sure</li>
+</ul>
+</li>
+<li>Do they use the variance given by Gaussian Process?
+<ul>
+<li>They use the variance as the confidence level</li>
+</ul>
+</li>
+<li>Does OtterTune use any workload information such as queries or transactions for tuning?
+<ul>
+<li>No</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="towards-a-hands-free-query-optimizer-through-deep-learning"><a class="header" href="#towards-a-hands-free-query-optimizer-through-deep-learning">Towards a Hands-Free Query Optimizer through Deep Learning</a></h1>
+<ul>
+<li>Authors: Ryan Marcus, Olga Papaemmanouil</li>
+<li>Institute: Brandeis University</li>
+<li>Published at CIDR'19</li>
+<li>Paper Link: <a href="http://cidrdb.org/cidr2019/papers/p96-marcus-cidr19.pdf">http://cidrdb.org/cidr2019/papers/p96-marcus-cidr19.pdf</a></li>
+</ul>
+<h2 id="background-3"><a class="header" href="#background-3">Background</a></h2>
+<p>Query optimization is a popular and important research topic.</p>
+<h2 id="motivation-6"><a class="header" href="#motivation-6">Motivation</a></h2>
+<p>There are chances for deep reinforcement learning to help query optimization:</p>
+<ul>
+<li>Many optimization approaches are heuristics due to the complexity of the problem.</li>
+<li>Deep RL can learn from mistakes.</li>
+</ul>
+<h2 id="problem-7"><a class="header" href="#problem-7">Problem</a></h2>
+<p>To study if it is possible to use deep RL to generate a plan tree for a query.</p>
+<h2 id="case-study-rejoin"><a class="header" href="#case-study-rejoin">Case Study: ReJOIN</a></h2>
+<p>It models query planning as a deep RL problem. Each time planning for a query is an episode.</p>
+<ul>
+<li>State: relations (tables)
+<ul>
+<li>Not sure how exactly it is</li>
+</ul>
+</li>
+<li>Action: which two relations to join</li>
+<li>Reward: the estimated cost from the query cost estimator
+<ul>
+<li>Only gives the reward when the agent reaches the final state.</li>
+</ul>
+</li>
+</ul>
+<h2 id="challenges"><a class="header" href="#challenges">Challenges</a></h2>
+<ul>
+<li>Large Search Space Size
+<ul>
+<li>The search space is extremely large if we want to let the RL agent deal with all the operators</li>
+</ul>
+</li>
+<li>Hard to provide reward
+<ul>
+<li>To efficiently train an agent, rewards need to be dense. However, if we choose query latency to be rewards, rewards would be sparse.</li>
+<li>The estimated cost is also not a good indicator for rewards because the cost estimator needs to be tuned by humans.</li>
+</ul>
+</li>
+<li>High evaluation overhead
+<ul>
+<li>It is hard for the agent to come out a good plan in the beginning. It may take much longer time to evaluate the plans.</li>
+</ul>
+</li>
+</ul>
+<h2 id="comments-1"><a class="header" href="#comments-1">Comments</a></h2>
+<ul>
+<li>Is it possible to solve the evaluation problem with curriculum learning? Like starting from a easy problem.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="database-meets-ai-a-survey"><a class="header" href="#database-meets-ai-a-survey">Database Meets AI: A Survey</a></h1>
+<ul>
+<li>Authors: Xuanhe Zhou, Chengliang Chai, Guoliang Li, JI SUN</li>
+<li>Institute: Tsinghua Unversity, Beijing, China</li>
+<li>Published at TKDE'20</li>
+<li>Paper Link: <a href="https://ieeexplore.ieee.org/document/9094012">https://ieeexplore.ieee.org/document/9094012</a></li>
+</ul>
+<h2 id="learning-based-database-configuration"><a class="header" href="#learning-based-database-configuration">Learning-based Database Configuration</a></h2>
+<h3 id="knob-tuning"><a class="header" href="#knob-tuning">Knob Tuning</a></h3>
+<p>Problem: to find the best set of configurations for a DBMS.</p>
+<h4 id="search-based-tuning"><a class="header" href="#search-based-tuning">Search-based Tuning</a></h4>
+<p>Finding the best configurations by branching and bound.</p>
+<ul>
+<li><a href="https://dl.acm.org/doi/10.1145/3127479.3128605">SoCC'17 - BestConfig: tapping the performance potential of systems via automatic configuration tuning</a>
+<ul>
+<li>Method
+<ol>
+<li>Divides the search space into smaller subspaces</li>
+<li>Sampling from the subspaces and iteractively reduces the search space to find the best one</li>
+</ol>
+</li>
+<li>Cons
+<ul>
+<li>Heuristic, no guarantee to find the best one</li>
+<li>The search space is too large</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="traditional-ml-based-tuning"><a class="header" href="#traditional-ml-based-tuning">Traditional ML-based Tuning</a></h4>
+<p>Finding the bets configurations using traditional ML-based methods.</p>
+<ul>
+<li><a href="https://www.cs.cmu.edu/%7Edvanaken/papers/ottertune-sigmod17.pdf">SIGMOD'17 - Automatic Database Management System Tuning ThroughLarge-scale Machine Learning</a>
+<ul>
+<li>Alias: OutterTune</li>
+<li><a href="dbms_with_ai/./aken2017ottertune.html">Read Note</a></li>
+</ul>
+</li>
+<li><a href="https://openproceedings.org/2019/conf/edbt/EDBT19_paper_226.pdf">EDBT'19 - SparkTune: tuning Spark SQL through query cost modeling</a></li>
+<li>Cons
+<ul>
+<li>The optimal solution obtained in the current stage is not guaranteed to be optimal in other stages.</li>
+<li>Requires a large number of high quality samples for training.</li>
+<li>Cannot support too many knobs.</li>
+</ul>
+</li>
+</ul>
+<h4 id="reinforcement-learning-for-tunning"><a class="header" href="#reinforcement-learning-for-tunning">Reinforcement Learning for Tunning</a></h4>
+<p>Uses a Reinforcement Learning (RL) agent to find the best configurations for a DBMS.</p>
+<ul>
+<li><a href="https://dl.acm.org/doi/10.1145/3299869.3300085">SIGMOD'19 - An End-to-End Automatic Cloud Database Tuning System Using Deep Reinforcement Learning</a>
+<ul>
+<li>Alias: CDBTune</li>
+<li>Method
+<ul>
+<li>The RL Modeling:
+<ul>
+<li>Environment: a cloud DBMS</li>
+<li>State: the internal metrics of the DBMS (similar to OutterTune)</li>
+<li>Action: the values for increasing or decreasing configurations (knobs)</li>
+<li>Reward: the difference of DBMS's performance</li>
+<li>Agent Model: Deep Deterministic Policy Gradient (DDPG)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pros
+<ul>
+<li>Does not need high-quality training data</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>without considering workload features</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.vldb.org/pvldb/vol12/p2118-li.pdf">VLDB'19 - QTune: A Query-Aware Database Tuning System with DeepReinforcement Learning</a>
+<ul>
+<li>Alias: QTune</li>
+<li>Method
+<ul>
+<li>Basically same with CDBTune but considers workloads.</li>
+<li>Uses Double-state Deep Reinforcement Learning (DS-DRL)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>(Reading...)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mb2-decomposed-behavior-modeling-for-self-driving-database-management-systems"><a class="header" href="#mb2-decomposed-behavior-modeling-for-self-driving-database-management-systems">MB2: Decomposed Behavior Modeling for Self-Driving Database Management Systems</a></h1>
+<ul>
+<li>Authors: Lin Ma, William Zhang, Jie Jiao, Wuwen Wang, Matthew Butrovich, Wan Shen Lim, Prashanth Menon, Andrew Pavlo</li>
+<li>Institute: Carnegie Mellon University</li>
+<li>Published at SIGMOD'21</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/10.1145/3448016.3457276">https://dl.acm.org/doi/10.1145/3448016.3457276</a></li>
+</ul>
+<h2 id="background-creating-a-self-driving-dbms"><a class="header" href="#background-creating-a-self-driving-dbms">Background: Creating a Self-driving DBMS</a></h2>
+<p>[51] proposes three main steps to build a self-driving DBMS:</p>
+<ol>
+<li>Workload forecasting
+<ul>
+<li>Predicting the future workloads</li>
+</ul>
+</li>
+<li>Bahavior modeling
+<ul>
+<li>Predicting the runtime behavior relative to the target objective (latency, throughput) given the predicted workloads</li>
+</ul>
+</li>
+<li>Decision making/planning
+<ul>
+<li>Selecting the actions to improve the objective</li>
+</ul>
+</li>
+</ol>
+<h2 id="motivation-behavior-modeling"><a class="header" href="#motivation-behavior-modeling">Motivation: Behavior Modeling</a></h2>
+<h3 id="problem-formulation"><a class="header" href="#problem-formulation">Problem Formulation</a></h3>
+<p>Input:</p>
+<ul>
+<li>The workload</li>
+<li>The system state</li>
+<li>An action</li>
+</ul>
+<p>Output:</p>
+<ul>
+<li>How long the action takes</li>
+<li>How much resource the action consumes</li>
+<li>How applying the action impacts the system performance</li>
+<li>How the action impacts the system once it is deployed</li>
+</ul>
+<h3 id="current-approaches"><a class="header" href="#current-approaches">Current Approaches</a></h3>
+<ul>
+<li>White-box analytical methods [42, 45, 74]
+<ul>
+<li>Use a human-devised formula</li>
+<li>Built for specific DBMSs
+<ul>
+<li>Different systems may use different formula</li>
+</ul>
+</li>
+<li>Con: difficult to migrate to a new DBMS</li>
+</ul>
+</li>
+<li>ML methods
+<ul>
+<li>Use a ML model</li>
+<li>Pro: more scalable and adaptable</li>
+<li>Cons
+<ul>
+<li>Only designed for query cost estimation
+<ul>
+<li>E.g., uses query plan to predict latency</li>
+</ul>
+</li>
+<li>Current models do not consider OLTP workloads</li>
+<li>Need accurate information for workloads (hard for predicting future workloads)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="example"><a class="header" href="#example">Example</a></h3>
+<p>The impact of creating a secondary index on the TPC-C workloads with 4 and 8 threads.</p>
+<p><img src="dbms_with_ai/lin2021mb2-fg1.png" alt="Figure 1" /></p>
+<p>The behavior model must predict this impact with the given action.</p>
+<h3 id="challenges-1"><a class="header" href="#challenges-1">Challenges</a></h3>
+<ul>
+<li>High dimensionality
+<ul>
+<li>Building a model to predict the performance of a DBMS must need a high-dimensional features, which impact the performance of the model.</li>
+</ul>
+</li>
+<li>Concurrent operations
+<ul>
+<li>Many concurrent transactions must affect the predicted result.</li>
+</ul>
+</li>
+<li>Training data collection v.s. Generalizability
+<ul>
+<li>To improve generalizability of a model, the system must collect more training data.</li>
+<li>However, collecting training data also requires large amount of effort.</li>
+</ul>
+</li>
+</ul>
+<h2 id="related-work"><a class="header" href="#related-work">Related Work</a></h2>
+<ul>
+<li>ML Models
+<ul>
+<li>Mostly based on query plans</li>
+<li>Needs to retrain the entire models if anything changes in the DBMS</li>
+<li>Poor generalizability between workloads.</li>
+<li>Focus on OLAP workloads</li>
+</ul>
+</li>
+<li>Analytical Models
+<ul>
+<li>Mostly designed for a special purpose
+<ul>
+<li>for resource bottleneck</li>
+<li>for cardinality estimation</li>
+<li>for index defragmentation suggestions</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="goal-1"><a class="header" href="#goal-1">Goal</a></h2>
+<p>To design a general behavior modeling method.</p>
+<h3 id="assumptions-2"><a class="header" href="#assumptions-2">Assumptions</a></h3>
+<ul>
+<li>Workloads are predictable</li>
+<li>In-memory DBMS with MVCC</li>
+<li>Supporting both OLTP and OLAP workloads</li>
+<li>Supporting capturing lock contention</li>
+<li>Does not consider aborts due to data conflicts</li>
+</ul>
+<h2 id="method-7"><a class="header" href="#method-7">Method</a></h2>
+<h3 id="main-idea-1"><a class="header" href="#main-idea-1">Main Idea</a></h3>
+<p>Decomposing the DBMS into independent opearting units (OU), each of which represents a step to complete a specific task.</p>
+<p>Then, MB2 creates a OU-runner and a OU-model for each OU:</p>
+<ul>
+<li>OU-runner: a runner to search input space, collect training data and train a model.</li>
+<li>OU-model: a ML model for the OU.</li>
+</ul>
+<h3 id="flow"><a class="header" href="#flow">Flow</a></h3>
+<p><img src="dbms_with_ai/lin2021mb2-fg3.png" alt="Figure 3" /></p>
+<ol>
+<li>Given
+<ul>
+<li>a forecasted workloads</li>
+<li>a candidate action</li>
+</ul>
+</li>
+<li>Translating the action to features for OU</li>
+<li>Making all OU-models to predict the results</li>
+<li>Using an interference model to adjust the results</li>
+<li>Merging the results to the predicted system performance</li>
+</ol>
+<h3 id="operating-units-ou"><a class="header" href="#operating-units-ou">Operating Units (OU)</a></h3>
+<p>Key properties of an OUs:</p>
+<ul>
+<li>Independent: the runtime behavior of an OU is independent of other OUs.
+<ul>
+<li>E.g., Changing join hash table size does not affect WAL.</li>
+</ul>
+</li>
+<li>Low dimensional: an model for an OU does not need many features to accurately predict the performance.
+<ul>
+<li>Insight: # of features = 10 is good</li>
+<li>Divide an OU to multiple OUs if it needs more features.</li>
+</ul>
+</li>
+<li>Comprehensive: OUs must cover all operations in a DBMS.</li>
+</ul>
+<p>OU Examples:</p>
+<p><img src="dbms_with_ai/lin2021mb2-tb1.png" alt="Table 1" /></p>
+<p>OU Types:</p>
+<ul>
+<li>Singular: focus on work and resource consumption for a single invocation.</li>
+<li>Batch: focus on a batch of work across OUs.</li>
+<li>Contending: focus on the work that may contend with other threads</li>
+</ul>
+<h3 id="ou-models"><a class="header" href="#ou-models">OU-Models</a></h3>
+<h4 id="input-features"><a class="header" href="#input-features">Input Features</a></h4>
+<ul>
+<li>Singular
+<ul>
+<li>number of input tuples</li>
+<li>number of columns of input tuples</li>
+<li>average input tuple size</li>
+<li>estimated key cardinality (e.g., sorting, joins)</li>
+<li>payload size (e.g., hash table entry size for hash join)</li>
+<li>number of loops (for index nested loop joins)</li>
+<li>is interpreter or JIT-compiled</li>
+</ul>
+</li>
+<li>Batch
+<ul>
+<li>total number of bytes</li>
+<li>total number of log buffers</li>
+<li>log flush interval</li>
+</ul>
+</li>
+<li>Contending
+<ul>
+<li>number of tuples</li>
+<li>number of keys</li>
+<li>size of keys</li>
+<li>estimated cardinality of the keys</li>
+<li>number of parallel threads</li>
+</ul>
+</li>
+</ul>
+<p>In addition to the above features, it also append tuneable configurations (knobs) for the OU to the features as inputs.</p>
+<h4 id="output-labels"><a class="header" href="#output-labels">Output Labels</a></h4>
+<ul>
+<li>elapsed time</li>
+<li>CPU time</li>
+<li>CPU cycles</li>
+<li>CPU instructions</li>
+<li>CPU cache references</li>
+<li>CPU cache misses</li>
+<li>disk block reads</li>
+<li>disk block writes</li>
+<li>memory consumption</li>
+</ul>
+<p>Note that the labels are the same for all OUs, so that MB2 can combine them together easier.</p>
+<h4 id="problems-of-collecting-data-with-olap-queries"><a class="header" href="#problems-of-collecting-data-with-olap-queries">Problems of collecting data with OLAP queries</a></h4>
+<p>OLAP queries usually takes much more time to process, which lead to high overhead of collecting training data for them.</p>
+<p>In order to overcome this, they normalize the output labels by the number of tuples so that we can train the model with queries that access less tuples.</p>
+<p>The value is normalized according to the following observation:</p>
+<ul>
+<li>They observed that the value of output labels is usually a complexity related to n (number of tuples) times a constant.</li>
+<li>So, they normalize the values by dividing the complexity.</li>
+<li>A special case: memory consumption for building hash tables.</li>
+</ul>
+<h3 id="the-interference-model"><a class="header" href="#the-interference-model">The Interference Model</a></h3>
+<p>To adjust the outputs of OU-models due to resource competition between OUs.</p>
+<p><img src="dbms_with_ai/lin2021mb2-fg4.png" alt="Figure 4" /></p>
+<h4 id="key-ideas"><a class="header" href="#key-ideas">Key Ideas</a></h4>
+<ul>
+<li>Normalized the inputs by the elapsed time.</li>
+<li>Predicting the ratio of the actual values and OU-model's predicted values.</li>
+</ul>
+<p>The key ideas is based on an observation:</p>
+<blockquote>
+<p>We observe that under the same concurrent environment,
+OUs with similar per-time-unit OU-model estimation (part of the
+interference model’s inputs) experience similar impacts and have
+similar output ratios regardless of the absolute elapsed time.</p>
+</blockquote>
+<h4 id="inputs"><a class="header" href="#inputs">Inputs</a></h4>
+<ul>
+<li>A OU-model's output labels</li>
+<li>Summary statistics of the OUs forecasted to run in the same time interval (e.g., 1 minute)
+<ul>
+<li>Sum</li>
+<li>Variance</li>
+</ul>
+</li>
+</ul>
+<p>Normalized by dividing inputs by the target OU-model's estimated elapsed time.</p>
+<h4 id="outputs"><a class="header" href="#outputs">Outputs</a></h4>
+<p>Same output labels with the input OU-model, but the values are the ratio between actual metrics and the original predicted metrics. The ratios usually &gt;= 1 since an OU runs faster by itself.</p>
+<h3 id="training-data-collection-and-training"><a class="header" href="#training-data-collection-and-training">Training Data Collection and Training</a></h3>
+<p>Assumption: off-line</p>
+<h4 id="components"><a class="header" href="#components">Components</a></h4>
+<ul>
+<li>OU Translator: translating queries and actions to OUs' inputs.</li>
+<li>Resource Tracker: tracking the elapsed time and resource consumptions for each OU.
+<ul>
+<li>Use user- and kernel-level functions to track.</li>
+</ul>
+</li>
+<li>OU-Runner: a microbenchmark to generate data for all possible inputs for each OU.
+<ul>
+<li>Inputs are generated in fixed-length and exponential step sizes.</li>
+<li>MB2 will normalize the output labels, which greatly reduces the number of training data that need to be collected.</li>
+<li>Can be executed concurrently with other OU-runners for training the inference model.
+<ul>
+<li>Parameters for using concurrent runners:
+<ul>
+<li>Which subsets of queries to execute</li>
+<li>The number of concurrent threads in the DBMS</li>
+<li>The workload submission rate.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="handling-the-inference-of-tracking-data-from-other-ous"><a class="header" href="#handling-the-inference-of-tracking-data-from-other-ous">Handling the inference of tracking data from other OUs</a></h4>
+<p>Challenges when collecting training data:</p>
+<ul>
+<li>multiple threads produce metrics in the same time and thus requires coordination</li>
+<li>too many resource tracker may incur a noticeable cost.</li>
+</ul>
+<p>These issues are addressed by:</p>
+<ul>
+<li>Makes each thread tracks their own metrics and uses a dedicated aggregator to gather these data and store together.</li>
+<li>Turning off other OUs' resource tracker during collecting data.</li>
+</ul>
+<h4 id="challenges-for-collecting-data-for-oltp-queries"><a class="header" href="#challenges-for-collecting-data-for-oltp-queries">Challenges for collecting data for OLTP queries</a></h4>
+<ul>
+<li>High variance due to hardware (e.g., CPU scaling) and background noise (e.g., kernel tasks)
+<ul>
+<li>Solution: execute OU-runner for each OU with sufficient repetitions (10 times) and applies robust statistics.
+<ul>
+<li>Uses 20% trimmed mean statistics</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A DBMS may execute OLTP queries as prepared statements
+<ul>
+<li>Solution: execute each query 5 times for warm-up</li>
+</ul>
+</li>
+<li>Other details:
+<ul>
+<li>Starts a new transaction for each execution to avoid data residing in CPU caches.</li>
+<li>If a query modifies database state, revert the query by rolling back the transaction.</li>
+</ul>
+</li>
+</ul>
+<p>Labels are insensitive to the trimmed mean percentage and number of warm-ups.</p>
+<h4 id="models-selection"><a class="header" href="#models-selection">Models Selection</a></h4>
+<p>MB2 selects and trains models for each OU and the inference model in the following steps:</p>
+<ol>
+<li>Split the training data to train/validation set (8:2)</li>
+<li>Train the following models and perform cross-validation
+<ul>
+<li>Linear regression</li>
+<li>Huber regression</li>
+<li>SVM</li>
+<li>Kernel regression</li>
+<li>Random forest</li>
+<li>Gradient boosting machine</li>
+<li>Deep neural network</li>
+</ul>
+</li>
+<li>Select the one with the highest validation score</li>
+<li>Train the selected model with all available training data</li>
+</ol>
+<h4 id="for-system-updates"><a class="header" href="#for-system-updates">For system updates</a></h4>
+<p>MB2 only needs to retrain the OU-models for the affected OUs.</p>
+<h2 id="experiments-4"><a class="header" href="#experiments-4">Experiments</a></h2>
+<h3 id="environment"><a class="header" href="#environment">Environment</a></h3>
+<ul>
+<li>Hardware:
+<ul>
+<li>2 x Intel Xeon E5-2630v4 CPUs (20 Cores)</li>
+<li>128 GB RAM</li>
+<li>Intel Optane DC P4800X SSD (NVMe)</li>
+</ul>
+</li>
+<li>OS: Ubuntu 18.04 LTS</li>
+<li>DBMS: NoisePage</li>
+<li>ML Framework: scikit-learn
+<ul>
+<li>All parameters remain default:
+<ul>
+<li>Random forest: 50 estimators</li>
+<li>Deep NN: 2 layers with 25 neurons</li>
+<li>Gradient boosting machine: 20 depth &amp; 1000 leaves</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="benchmarks"><a class="header" href="#benchmarks">Benchmarks</a></h3>
+<p>OLTP-Bench [13]:</p>
+<ul>
+<li>SmallBank: OLTP, 3 tables, 5 tx types
+<ul>
+<li>Models customers interacting with a bank branch</li>
+</ul>
+</li>
+<li>TATP: OLTP, 4 tables, 7 tx types
+<ul>
+<li>Models cell phone registration service</li>
+</ul>
+</li>
+<li>TPC-C: OLTP, 9 tables, 5 tx types
+<ul>
+<li>Models warehouses fulfilling orders</li>
+</ul>
+</li>
+<li>TPC-H: OLAP, 8 tables, long-length queries
+<ul>
+<li>Models business analytics workload</li>
+</ul>
+</li>
+</ul>
+<h3 id="evaluation-metics"><a class="header" href="#evaluation-metics">Evaluation Metics</a></h3>
+<ul>
+<li>Relative Error: \(\frac{|Actual - Predict|}{Actual}\) for OLAP workloads</li>
+<li>Average Absolute Error: \(|Actual - Predict|\) per OLTP query template</li>
+</ul>
+<h3 id="training-and-model-cost"><a class="header" href="#training-and-model-cost">Training and Model Cost</a></h3>
+<p><img src="dbms_with_ai/lin2021mb2-tb2.png" alt="Table 2" /></p>
+<p>Key results:</p>
+<ul>
+<li>1M unique data points for 19 OUs</li>
+<li>Average Inference time
+<ul>
+<li>OU translator for a query: 10 𝜇s</li>
+<li>OU model for a query: 0.5 ms</li>
+</ul>
+</li>
+<li>Average resource tracker invocation time: 20 𝜇s</li>
+</ul>
+<h3 id="ou-model-accuracy"><a class="header" href="#ou-model-accuracy">OU-Model Accuracy</a></h3>
+<p><img src="dbms_with_ai/lin2021mb2-fg5.png" alt="Figure 5" /></p>
+<p>Key insights:</p>
+<ul>
+<li>More than 80% of the OU-models have an average error &lt; 20%</li>
+<li>Transaction OU-models and probing an aggregation hash table have higher relative error because most cases have short elapsed time (&lt; 10 𝜇s), which leads to high variance.</li>
+<li>Random forest and gradient boosting machine perform best</li>
+<li>Deep NN have higher error because most of them overfit on low dimension data.</li>
+<li>Huber regression is also effective for simple OUs and cheaper to train.</li>
+</ul>
+<p><img src="dbms_with_ai/lin2021mb2-fg6.png" alt="Figure 6" /></p>
+<p>Key insights:</p>
+<ul>
+<li>Most labels have an average error &lt; 20%</li>
+<li>Predicting cache miss is challenging because it depends on the content in the cache</li>
+<li>Normalization is effective</li>
+</ul>
+<h3 id="generalizability-on-query-runtime-prediction"><a class="header" href="#generalizability-on-query-runtime-prediction">Generalizability on Query Runtime Prediction</a></h3>
+<p>Baseline: QPPNet [26, 40]</p>
+<ul>
+<li>A tree-structured neural network</li>
+<li>The state-of-the-art on predicting query runtime</li>
+<li>Generalizability is good</li>
+<li>Disk-based</li>
+</ul>
+<p>Training Method</p>
+<ul>
+<li>For OLAP, training on TPC-H 1G data set and testing on all other OLAP workloads.</li>
+<li>For OLTP, training on TPC-C data set and testing on all other OLTP workloads.</li>
+</ul>
+<p><img src="dbms_with_ai/lin2021mb2-fg7.png" alt="Figure 7" /></p>
+<p>Key insights:</p>
+<ul>
+<li>OLAP
+<ul>
+<li>QPPNet achieves competitive performance on the workload it trains on, but it has higher errors on other workloads.</li>
+<li>MB2 achieve better and stable performance across all workloads because the fine-grained OUs design.</li>
+<li>Output normalization technique helps.</li>
+</ul>
+</li>
+<li>OLTP
+<ul>
+<li>MB2 has higher error on TPC-C, but it generalizes better to other workloads.</li>
+<li>Output normalization does not help too much.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-interference-model-1"><a class="header" href="#the-interference-model-1">The Interference Model</a></h3>
+<p>Settings:</p>
+<ul>
+<li>The interference model uses deep NN (which performs best).</li>
+<li>Executes the queries in both single-thread and concurrent environments and compare the true adjustment factors against the predicted adjustment factors</li>
+</ul>
+<p><img src="dbms_with_ai/lin2021mb2-fg8.png" alt="Figure 8" /></p>
+<p>Key insights:</p>
+<ul>
+<li>The interference model has less than 20% error in all cases.</li>
+<li>Small data set size results in higher variance in the interference, so the model has higher error.</li>
+</ul>
+<h3 id="model-adaptation-and-robustness"><a class="header" href="#model-adaptation-and-robustness">Model Adaptation and Robustness</a></h3>
+<h4 id="system-updates"><a class="header" href="#system-updates">System Updates</a></h4>
+<p>Settings:</p>
+<ul>
+<li>Simulate system updates of improving join hash table algorithm adding sleep time:
+<ul>
+<li>No sleep</li>
+<li>Sleep 1 us very 1000 insertions</li>
+<li>Sleep 1 us very 100 insertions</li>
+</ul>
+</li>
+<li>MB2 retrains the OU-models for hash join
+<ul>
+<li>Takes 23 minutes (24x faster than retraining all OU-models)</li>
+</ul>
+</li>
+</ul>
+<p>They seems to put the wrong figure for this experiment. (Figure 9a)</p>
+<h4 id="noisy-cardinality"><a class="header" href="#noisy-cardinality">Noisy Cardinality</a></h4>
+<p>Settings:</p>
+<ul>
+<li>Add Gaussian white noise (mean = 0, variance = 30%) on cardinality estimation, which is an important input features for OU-models</li>
+</ul>
+<p><img src="dbms_with_ai/lin2021mb2-fg9b.png" alt="Figure 9b" /></p>
+<p>Key insights:</p>
+<ul>
+<li>Has almost no accuracy loss (&lt; 2%)</li>
+</ul>
+<h3 id="hardware-adaptability-by-adding-hardware-context-as-features"><a class="header" href="#hardware-adaptability-by-adding-hardware-context-as-features">Hardware Adaptability by Adding Hardware Context as Features</a></h3>
+<p>Settings</p>
+<ul>
+<li>Adds CPU frequency as one of input features for OU-models</li>
+<li>Tests OU-models trained using different CPU frequency (1.2 ~ 3.1 GHz)</li>
+</ul>
+<p><img src="dbms_with_ai/lin2021mb2-fg10.png" alt="Figure 10" /></p>
+<p>Key insights:</p>
+<ul>
+<li>Extending the OU-model with hardware context improves the prediction in most cases</li>
+<li>A special case where it performs notably worse is for the TPC-C workload under 2.0 GHz CPU
+<ul>
+<li>Because the models generally over-predict the runtime of the TPC-C queries.</li>
+</ul>
+</li>
+</ul>
+<h3 id="end-to-end-self-driving-execution"><a class="header" href="#end-to-end-self-driving-execution">End-to-End Self-Driving Execution</a></h3>
+<p>Settings:</p>
+<ul>
+<li>Assumes
+<ul>
+<li>a forecaster that forecasts the average query arrival rate per query type in the next 10 seconds.</li>
+<li>a decision maker that uses the estimated information to decide how to adjust the system.</li>
+</ul>
+</li>
+<li>Workloads: daily transactional-analytical workload cycle
+<ul>
+<li>TPC-C: 20 warehouses, 50000 customers per district</li>
+<li>TPC-H: 1GB</li>
+<li>10 concurrent threads</li>
+</ul>
+</li>
+<li>Initial configurations that need to be updated
+<ul>
+<li>Interpretive mode (JIT works better)</li>
+<li>No secondary index for customer tables</li>
+</ul>
+</li>
+</ul>
+<p>Goal: to see whether MB2 can accurately estimate the latency with given action plans.</p>
+<p><img src="dbms_with_ai/lin2021mb2-fg11a.png" alt="Figure 11a" /></p>
+<p>With workload changes and the decisions (changing execution mode and building an index), MB2 accurately predicts the latency.</p>
+<p><img src="dbms_with_ai/lin2021mb2-fg11c.png" alt="Figure 11c" /></p>
+<p>Even if we change the actions (building index with fewer threads), MB2 still manages to predict the latency accurately.</p>
+<p><img src="dbms_with_ai/lin2021mb2-fg11b.png" alt="Figure 11b" /></p>
+<p>MB2 can also accurately predicts CPU utilization for each query.</p>
+<h2 id="conclusion-6"><a class="header" href="#conclusion-6">Conclusion</a></h2>
+<ul>
+<li>Provides many useful insights and techniques for latency estimation.</li>
+<li>Solid experiments</li>
+<li>Due to the assumption of in-memory DBMS and MVCC, there is no discussion on modeling behaviors for disk I/Os and lock contentions.</li>
+</ul>
+<h2 id="questions-6"><a class="header" href="#questions-6">Questions</a></h2>
+<ul>
+<li>Why does the paper emphasize &quot;To orchestrate data collection across all OUs and to simulate concurrent environments, MB2 uses concurrent runners to execute end-to-end workloads (e.g., benchmarks, query traces) with multiple threads.&quot;? What does &quot;concurrent runners&quot; mean?</li>
+<li>What is &quot;robust statistics&quot;?</li>
+<li>Is it possible to predict the latency of a query without specify what action to perform for MB2?</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="one-model-to-rule-them-all-towards-zero-shot-learning-for-databases"><a class="header" href="#one-model-to-rule-them-all-towards-zero-shot-learning-for-databases">One Model to Rule them All: Towards Zero-Shot Learning for Databases</a></h1>
+<ul>
+<li>Authors: Benjamin Hilprecht, Carsten Binnig</li>
+<li>Institute: Technical University of Darmstadt, Germany</li>
+<li>Published at CIDR'22</li>
+<li>Paper Link: <a href="http://cidrdb.org/cidr2022/papers/p16-hilprecht.pdf">http://cidrdb.org/cidr2022/papers/p16-hilprecht.pdf</a></li>
+</ul>
+<h2 id="background-4"><a class="header" href="#background-4">Background</a></h2>
+<p>There have been many new proposals for using AI to improve DBMS components such as:</p>
+<ul>
+<li>More accurate cost estimators</li>
+<li>Faster query optimizers</li>
+<li>DBMS auto configurations (parameter tuning and physical design)</li>
+</ul>
+<h2 id="motivation-7"><a class="header" href="#motivation-7">Motivation</a></h2>
+<p>Those learning-based techniques usually require retraining once we apply them to a new database or workload, which may require great effort to collect training data.</p>
+<h2 id="problem-8"><a class="header" href="#problem-8">Problem</a></h2>
+<p>This paper aims to propose several techniques that help learning-based methods perform well when they are transferred to a new database without retraining.</p>
+<h2 id="method-8"><a class="header" href="#method-8">Method</a></h2>
+<h3 id="key-insights"><a class="header" href="#key-insights">Key Insights</a></h3>
+<p>There are a few insights that may be the keys toward zero-shot learning techniques:</p>
+<ul>
+<li>Transferable representations of database and queries
+<ul>
+<li>In order to make a learning-based technique transferrable across databases, the format of representations should not depend on databases and queries.</li>
+</ul>
+</li>
+<li>Training data collection and robustness
+<ul>
+<li>How to collect effective training data is important to enable zero-shot learning</li>
+<li>A preliminary experiment shows that we can use a relative small training data set to outperform the state of the art when transferring from one database to another.</li>
+<li>We need a way to guide us to find more effective training samples</li>
+</ul>
+</li>
+<li>Separation of concerns
+<ul>
+<li>Decomposing a end-to-end model into smaller task-specific models help these small models more transferable across databases.</li>
+</ul>
+</li>
+</ul>
+<h3 id="transferable-representations"><a class="header" href="#transferable-representations">Transferable Representations</a></h3>
+<p><img src="dbms_with_ai/hilprecht2022zeroshot-figure1.png" alt="Transferable Representations" /></p>
+<p>Two key techniques:</p>
+<ul>
+<li>Graph Encoding
+<ul>
+<li>Modeling plan operator, predicates, table names as graph nodes</li>
+</ul>
+</li>
+<li>Transferable Featurization
+<ul>
+<li>Using general statistics instead of database-specific features, such as number of tuples and pages.</li>
+</ul>
+</li>
+</ul>
+<h2 id="experiments-5"><a class="header" href="#experiments-5">Experiments</a></h2>
+<p>The initial results show that their models outperforms the state of the art models on an unseen database (IMDB) without additional retraining.</p>
+<h2 id="conclusion-7"><a class="header" href="#conclusion-7">Conclusion</a></h2>
+<ul>
+<li>Interesting direction</li>
+<li>Needs more descriptions on how to feature queries and other case studies</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="scalable-multi-query-execution-using-reinforcement-learning"><a class="header" href="#scalable-multi-query-execution-using-reinforcement-learning">Scalable Multi-Query Execution using Reinforcement Learning</a></h1>
+<ul>
+<li>Authors: Panagiotis Sioulas, Anastasia Ailamaki</li>
+<li>Institute: EPFL</li>
+<li>Published at SIGMOD'21</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/10.1145/3448016.3452799">https://dl.acm.org/doi/10.1145/3448016.3452799</a></li>
+</ul>
+<h2 id="background-5"><a class="header" href="#background-5">Background</a></h2>
+<h3 id="vectorized-execution"><a class="header" href="#vectorized-execution">Vectorized Execution</a></h3>
+<p>Vectorized execution 是一種藉由 SIMD 來加速 query execution 的作法。 SIMD 的特色在於可以藉由一道 instruction 同時對多個資料進行相同操作，可以大幅增加平行性。 Vectorized execution 則是為了要使用 SIMD 進行 query execution，必須設計特別的 algorithm 把要處理的資料轉成 vector，然後對這些 vector 進行 SIMD 操作來完成 query execution。</p>
+<p>常見可以做 vectorized execution 的動作包括：</p>
+<ul>
+<li>Scan with filtering</li>
+<li>Hash Table Probing</li>
+<li>Histogram Building</li>
+</ul>
+<p>Reference: Andy Pavlo 的 <a href="https://15721.courses.cs.cmu.edu/spring2020/schedule.html">Vectorized Execution 課程</a>。</p>
+<h3 id="work-sharing"><a class="header" href="#work-sharing">Work-Sharing</a></h3>
+<ul>
+<li>Global Query Plan: a shared plan for multiple queries</li>
+<li>Online sharing: 線上一邊接受新 query，一邊將 query plan 與執行中的 query 合併來減少資源花費。
+<ul>
+<li>關鍵問題在於：已經在執行的 query plan 是無法更改的。因此新進來的 query plan 只能配合執行中的 query plan 偵測相似的 sub-plan。然而實際上考慮所有 query 的可能 query plan 的時候，是有可能找到更好的 global query plan，但 online 作法的限制錯失了這個機會。</li>
+<li><a href="https://www.pdl.cmu.edu/PDL-FTP/Database/qpipe.pdf">SIGMOD'05 - QPipe</a>
+<ul>
+<li>早期做 work-sharing 的方式</li>
+<li>簡單地偵測並 reuse 之前的 query result 或 intermediate result</li>
+<li>通常都是看是否有拿過相同 range 的資料等等</li>
+</ul>
+</li>
+<li><a href="https://faculty.ucmerced.edu/frusu/Papers/Contribution/2010-sigmod-datapath.pdf">SIGMOD'10 - DataPath</a>
+<ul>
+<li>嘗試將執行中的 query 與剛進來的 query 的 plan tree 合併，變成一棵 global plan tree，然後中間就有些部分可以 reuse。可以視為是將 common 的 sub-plan 組合起來。</li>
+</ul>
+</li>
+<li><a href="https://dslab.epfl.ch/pubs/cjoin.pdf">VLDB'09 - CJOIN</a>
+<ul>
+<li>考慮將 operator reordering，確切來說會考慮優先將 selectivity 低的放前面，然而最佳來說並非是最好的做法。</li>
+</ul>
+</li>
+<li><a href="https://dsf.berkeley.edu/papers/sigmod02-cacq.pdf">SIGMOD'02 - CACQ</a></li>
+</ul>
+</li>
+<li>Offline sharing: 藉由在給定的 query batch 中嘗試所有可能的選項，以找到 cost 最低的選項。
+<ul>
+<li>這些做法的問題都在於問題的 solution space 太廣，導致只要 query 一多 complexity 就會變高。以致於 scalability 不佳。</li>
+<li>Multi-query Optimization (MQO)
+<ul>
+<li>很多 work 都在解這個問題。</li>
+<li>基本作法就是盡可能地遍歷所有 query 的可能 operator 組合，以找出最佳的 query plan。</li>
+<li>每種做法的差異在於 bounding case 不同</li>
+</ul>
+</li>
+<li><a href="http://www.vldb.org/pvldb/vol7/p429-giannikis.pdf">VLDB'14 - Shared-workload Optimizers (SWO)</a>
+<ul>
+<li>跟 MQO 的差異在於並非是以 batch of queries 做 input，而是還考慮了在一個 workload 中，每一種 query 出現的頻率。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>應用的系統目前都是基於 SWO，所以會有 scalability issue
+<ul>
+<li>SharedDB</li>
+<li>MQJoin</li>
+</ul>
+</li>
+</ul>
+<h3 id="adaptive-query-processing"><a class="header" href="#adaptive-query-processing">Adaptive Query Processing</a></h3>
+<p>利用 query execution 中搜集到的資訊適度地動態調整 query plan。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=jveohy_qhHU">Symmetric Hash-join</a>
+<ul>
+<li>一般的 hash join 是先對其中一個 join table 建立 (join key -&gt; record id) 的 hash table，然後再一一拉出另一邊 join table 的 record 來在 hash table 中尋找 match。</li>
+<li>Symmetric Hash-join 則是對兩邊 join table 都建立一個 hash table，通常應用於 streamming query engine。因為不確定哪一邊的 table 資料會先過來，所以最好兩邊都建 hash table，然後讓一邊資料來的時候去查另一邊的 hash table。</li>
+<li>缺點是需要花費大量記憶體建 hash table，因此一般的 DBMS 不會使用這種做法，通常只用於 stream process。</li>
+</ul>
+</li>
+<li><a href="https://dsf.berkeley.edu/cs286/papers/eddies-sigmod2000.pdf">SIGMOD'00 - Eddies</a>: 藉由觀察 operator 的 input 與 output 來動態 reorder operator
+<ul>
+<li>Eddies 的概念是將 query plan 裡面先後順序可以替換的 operator 打散 (例如 hash join，任何的 join order 可能都不影響結果)，然後由 eddies 的 routing algorithm 來決定今天進來的一個 tuple 應該優先做哪一種 join。</li>
+<li>Eddies 的 algorithm 會隨著狀況判斷每一個 tuple 該先進哪一個 operator (例如先做哪一個 join)。判斷的方式為記錄 operator 的 input 與 output 數量，如此一來可以知道先做哪一個 operator 可能比較有利。</li>
+</ul>
+</li>
+<li><a href="https://dsf.berkeley.edu/papers/icde03-stems.pdf">ICDE'03 - State Modules (STeMs)</a>
+<ul>
+<li>如果我理解沒錯的話，就是一個 hash table</li>
+<li>主要應用是在多重 SHJ，原本的 3-way 以上的 SHJ 在越上層的 join 就需要建越大的 hash table，因為越上層的 intermediate result 越大，而且 SHJ 要求 join 兩側都要建 hash table。然而 state modules 搭配 eddies 使用的話，就不需要建儲存 intermediate results 的 table。只需要為每一個 base table 建 hash table 就好。Eddies 會控制如何 join 這些 bash table。</li>
+</ul>
+</li>
+</ul>
+<h3 id="reinforcement-learning"><a class="header" href="#reinforcement-learning">Reinforcement Learning</a></h3>
+<p>這篇使用 Q-Learning 應用在 reorder operator。</p>
+<h3 id="learned-cardinality-estimation"><a class="header" href="#learned-cardinality-estimation">Learned Cardinality Estimation</a></h3>
+<p>這篇利用之前 Learned Cardinality Estimation 相關的研究成果來預測 cardinality。</p>
+<h2 id="motivation-8"><a class="header" href="#motivation-8">Motivation</a></h2>
+<h2 id="problem-9"><a class="header" href="#problem-9">Problem</a></h2>
+<h3 id="assumtions"><a class="header" href="#assumtions">Assumtions</a></h3>
+<ul>
+<li>OLAP Workloads
+<ul>
+<li>Almost no update to the database</li>
+<li>Queries intend to summary the statistics of the database</li>
+</ul>
+</li>
+<li>只針對 select-project-join (SPJ) 的情況優化，其他則維持原本的處理方式
+<ul>
+<li>進一步假設這些 SPJ 的 query plan 都出現在整個 query plan 的最底層</li>
+</ul>
+</li>
+</ul>
+<h2 id="method-9"><a class="header" href="#method-9">Method</a></h2>
+<h3 id="main-contribution"><a class="header" href="#main-contribution">Main Contribution</a></h3>
+<ul>
+<li>設計出 RL-based 的 tuple router (eddy)，來強化 online work sharing 的效果，以找到更好的 global query plan。</li>
+</ul>
+<h3 id="概念"><a class="header" href="#概念">概念</a></h3>
+<ul>
+<li>Episodes
+<ul>
+<li>每個 episode 取得一個 table 的 vector (vector size = 1024 tuples)，eddy 建立一個 global query plan，然後轉交給一個 executor 的 worker thread 做處理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="architecture"><a class="header" href="#architecture">Architecture</a></h3>
+<ul>
+<li>Main DBMS
+<ul>
+<li>負責接收使用者 query 並轉成初步的 plan tree</li>
+<li>得到 plan tree 之後會將 SPJ 的 sub-plan 送進 RouLette 處理，而這個 sub-plan 會用另一個 RouLette 的 place holder 替代。</li>
+<li>DBMS 等待 RouLette 將 SPJ 的 tuples 送回，送回之後繼續執行 SPJ 以外的 query plan</li>
+</ul>
+</li>
+<li>RouLette
+<ul>
+<li>Ingestion Module
+<ul>
+<li>負責從 DBMS 的 storage engine 索取 table 的資料，目標是用來 scan table</li>
+<li>索取時以 vector 的形式取出，以使用 vectorized execution 的技巧優化</li>
+<li>自己一個 thread</li>
+<li>會為所有 ongoing 或者 incoming 的 query 所需的 table 的資料</li>
+<li>會追蹤每一個 query scan 每一個 table 的起點，如此就可以知道針對某一個 query 來說是否已經 scan 完所有資料</li>
+<li>每次輸出的 vector 上的每一個 tuple 會包含一個 bit set，紀錄該 tuple 要輸出給哪一些 query，如此一來後面的 component 就知道結果該輸出給哪些 query</li>
+<li>Scan 的時候使用 round-robin 的方式公平地掃每一個需要的 table，以盡可能地服務到所有 query。</li>
+</ul>
+</li>
+<li>STeMs
+<ul>
+<li>負責使用 in-memory index 暫存每一個 table 輸出的資料，以讓 Eddy Module 可以以任意順序存取需要的資料。而不是依照原本 plan tree 的邏輯存取。</li>
+</ul>
+</li>
+<li>Eddy
+<ul>
+<li>負責在每一個 episode 產生一個 global query plan 處理所有 ongoing query 需要的資料。</li>
+<li>會在 episode 之間動態調整 policy 以在之後的 episode 產生更好的 global plan</li>
+<li>實作 selection push-down strategy。因此產生的 global plan 一定是 selection 在最底層，然後才是 join 與 projection。</li>
+<li>Join 的 plan 會使用 multi-step optimization (MSO) 來產生，其使用的 policy 則是由 RL 在 episode 之間學習。</li>
+<li>持續記錄每一個 operator 與 query 的 pair，operator 的 input 與 output，作為 state 供 RL 學習。</li>
+</ul>
+</li>
+<li>Executor
+<ul>
+<li>有一個 worker thread pool，每一個 worker 負責處理一個 episode，一個 episode 包含輸入一個 table 的 vector 並執行 global query plan。</li>
+<li>執行流程
+<ol>
+<li>收到 Ingestion 傳來的 input vector</li>
+<li>進行 selection</li>
+<li>插進對應的 STeM (hash table)</li>
+<li>執行 Symetric Join</li>
+<li>將結果的 tuple 回傳到 Main DBMS 給對應的 query plan</li>
+</ol>
+</li>
+<li>執行時採用 vectorized execution</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="core-problems"><a class="header" href="#core-problems">Core Problems</a></h3>
+<ul>
+<li>How does Eddy generates a global query plan?</li>
+<li>How does a worker thread efficently execute the query plan?</li>
+</ul>
+<h3 id="eddys-global-plan-geneartion-algorithm"><a class="header" href="#eddys-global-plan-geneartion-algorithm">Eddy's Global Plan Geneartion Algorithm</a></h3>
+<ol>
+<li>接收一個 input vector</li>
+<li>找出與該 input vector 的 base relation 可以 join 的 relation，作為 candidates</li>
+<li>選出最佳的 candidate relation 做 join</li>
+<li>紀錄已經 join 的 relation 與符合這次 join 的 query set</li>
+<li>加入新 join 的 table 的 selection (可能會有多種 selection 同時存在，因為要針對不同的 query 的 constraint 做處理)</li>
+<li>繼續尋找 candidate 與 join</li>
+<li>直到完成某一個 query join 的要件，紀錄該條 path 最後的 output 要傳遞至哪些 query</li>
+<li>往回尋找分歧點 (導致某些 query 不符合的 join 點)，繼續尋找其他 candidate 並 join</li>
+<li>直到所有 query 都有符合的 path 後結束</li>
+</ol>
+<p>選擇 candidate 時需要考慮的問題：</p>
+<ul>
+<li>盡可能讓越多 query share 越多 join 越好</li>
+<li>Join Selectivity
+<ul>
+<li>任兩個 relation join 之後會有多少 record 是 match 的</li>
+</ul>
+</li>
+<li>Join 後的資料量</li>
+</ul>
+<h3 id="candidate-selection-policy"><a class="header" href="#candidate-selection-policy">Candidate Selection Policy</a></h3>
+<p>為了盡可能讓 Eddy 選擇最好的 candidate，它必須要使用以下幾項技術：</p>
+<ul>
+<li>Cost Estimation
+<ul>
+<li>概念是預測每一個 Operator 的 cost，這個 cost function 的 input 是 operator 的 input 與 output size</li>
+<li>將 plan 的所有 operator 的 cost 全部加起來就是 plan 的 cost</li>
+<li>Operator Cost 這篇定義為 computation cost，並且假定 linear to input size。Cost function 為：$K_a * n_{in} + \lambda_a * p(o) * n_{in}$，其中 $K_a、\lambda_a$ 為常數，$p(o)$ 是 operator 的 selectivity。
+<ul>
+<li>這篇論文對所有相同類型的 opeartor 使用相同的 $K_a、\lambda_a$ (join, selection)，數值是從過去的統計中計算出來的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Policy Goal: 找到一個 plan 的 total cost 是最低的
+<ul>
+<li>這個 goal 可以帶換成 RL 想要找到 total reward 是最高的</li>
+<li>這件事情不容易做到的原因在於，我們是一步步把 candidate 接起來，所以在接前面的 operator 時，並不知道後面的 operator 會有哪些，而且會造成多少 cost。</li>
+<li>另一種做法是可以 iterate 所有的 possible plan，但這樣在 online 做就太花時間。</li>
+</ul>
+</li>
+<li>RL Modeling
+<ul>
+<li>State:
+<ul>
+<li>Virtual vector
+<ul>
+<li>代表這個 step 已經 join 的 relation 與符合條件的 query</li>
+<li>如果有多條 path (對應不同的 query)，則 stack 起來變成長 vector</li>
+</ul>
+</li>
+<li>Input size</li>
+</ul>
+</li>
+<li>Action: 針對最上面那條 path 的 candidate 裡面選一個 operator</li>
+<li>Reward: 選擇這個 candidate operator 所帶來的 cost (包含 join cost 與 selection cost)</li>
+</ul>
+</li>
+</ul>
+<h3 id="opeartor-implementation"><a class="header" href="#opeartor-implementation">Opeartor Implementation</a></h3>
+<ul>
+<li>Selection
+<ul>
+<li>每一個 tuple 都會有一個 query-set bitmap，代表這個 tuple 會用於那些 query。</li>
+<li>每一個 selection operator 會對每一個 tuple 計算另一個 bitmap，然後把 tuple 本身的 bitmap 與這個 bitmap 取 AND。得到新的 bitmap。</li>
+<li>在 predicate evaluation 的時候，會事先將所有 query 的 predicate 分成多個 range，其中每一個 range 會對應到一組 bitmap，並使用 binary search 的方式找 match 的 range，其 bitmap 就是該 tuple 的結果。</li>
+</ul>
+</li>
+<li>Join
+<ul>
+<li>使用 SeTMs 來 join，join 完後再對兩者的 bitmap 取 AND 來決定要留下來些 record。</li>
+</ul>
+</li>
+<li>Join Pruning</li>
+</ul>
+<h2 id="conclusion-8"><a class="header" href="#conclusion-8">Conclusion</a></h2>
+<p>Interesting problem and idea, but the in-memory assumption is not realistic.</p>
+<h2 id="questions-7"><a class="header" href="#questions-7">Questions</a></h2>
+<ul>
+<li>Who are using work-sharing? Any practical examples?
+<ul>
+<li>就 paper 的理論來看好像大多還是用在 stream processing，但 batch processing 的情況也能夠使用。</li>
+</ul>
+</li>
+<li>如果 where 條件不同也能夠 work sharing 嗎？有例子嗎？
+<ul>
+<li>可以，這篇論文的 Figure 8 就是在說明如何處理 where 不同的情況。</li>
+</ul>
+</li>
+<li>Section 3 一開始提到 &quot;Ingestion pulls a vector from the host’s storage into RouLette.&quot;，為什麼是拉出 vectors？
+<ul>
+<li>為了做 vectorized execution</li>
+</ul>
+</li>
+<li>如果我理解沒錯的話，RouLette 是否只有針對 Select-Project-Join 的 case 優化？
+<ul>
+<li>是，這篇論文只探討 Select-Project-Join 的優話</li>
+</ul>
+</li>
+<li>如果我理解 STeMs 沒錯的話，就是一個有 index 的 in-memory data table。這是不是代表需要耗費大量記憶體暫存資料？但是 Data Warehouse 的資料通常很大，這些資料要如何暫存，記憶體空間肯定是不夠吧？
+<ul>
+<li>第三章最後有提到 STeMs 的實作採用 in-memory 的方式。因此記憶體大小會影響 RouLette 能處理的資料量。</li>
+<li>另外也提到他們以 column store 的方式實作，所以拉取資料時只拉取有興趣的 column，以減少需要儲存的資料量。</li>
+</ul>
+</li>
+<li>甚麼時候會移除 STeMs 的資料？
+<ul>
+<li>看起來整個 RouLette 的處理方式還是以 batch processing 為主，所以當這個 batch 處理完之後，就會刪除所有的 intermediate records (STeMs 的資料)。</li>
+</ul>
+</li>
+<li>每個 episode 都要重建 global query plan，但又只用來 process 一個 vector of tuples，這真的會快嗎？
+<ul>
+<li>可能是因為它使用了 RL 的方式建立 query plan，所以基本上都是 O(1) 的 time complexity。另外 vector 大小也會影響重建 query plan 的次數。Paper 寫說他們 vector size 使用 1024，所以 episode 的數量並非到非常誇張的地步。</li>
+</ul>
+</li>
+<li>為什麼可以將 query processing 切成 episode？這樣修改 query plan 不會出錯嗎？
+<ul>
+<li>不會，這邊是用到 symmetric hash join 的做法</li>
+</ul>
+</li>
+<li>RL 的 cost estimation 為什麼重要？</li>
+</ul>
+<h2 id="slides-logics"><a class="header" href="#slides-logics">Slides Logics</a></h2>
+<ul>
+<li>Background
+<ul>
+<li>Query Processing
+<ul>
+<li>簡單複習一下流程：parsing query -&gt; optimize query plan -&gt; query execution</li>
+</ul>
+</li>
+<li>Multi-query Processing in OLAP workloads
+<ul>
+<li>多個 query 同時處裡的時候，有機會可以共用一些資源</li>
+<li>舉例：兩個 query 可能有 overlap 的 record set</li>
+</ul>
+</li>
+<li>問題：然而當產生的 query plan 差距太大時，可能就難以利用到這種機會</li>
+<li>這篇論文目標
+<ul>
+<li>Input: batch of queries</li>
+<li>Goal: find a way to execute these queries fast</li>
+<li>Assumption: main memory is large enough to fit the working set for the queries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Previous Work
+<ul>
+<li>Online work-sharing methods
+<ul>
+<li>QPipe: heuristics to reuse query result or intermediate results</li>
+<li>DataPath: detect common sub-plans between multiple queries</li>
+<li>CJoin: consider reordering some operators to find common sub-plans
+<ul>
+<li>TODO: need an example to show why it may not be optimal</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Off-line work-sharing methods
+<ul>
+<li>MQO: iterate all possible query plan to find the optimal global plan for a set of queries.</li>
+<li>SWO: similiar to MQO, but considers the frequency of query types.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RouLette
+<ul>
+<li>Key Idea
+<ul>
+<li>Global select-join query plan: 為所有 query 組成一個 global query plan，其中只考慮 select 跟 join 的優化。</li>
+<li>Episodes: 將 query processing 切成多個 episodes，每個 episodes 處理一組 tuples，並產生獨立的 global plan。
+<ul>
+<li>這利用到了 Adaptive Query Processing (SIGMOD’00 - Eddies) 的概念，該論文提出應該一邊執行 query 一邊修正 query plan。但該論文只考慮 single-query。</li>
+<li>好處：這樣可以逐步找到最好的 global query plan。</li>
+</ul>
+</li>
+<li>Uses RL to improve global query plan</li>
+</ul>
+</li>
+<li>System Overview (use examples to illustrate)
+<ul>
+<li>Workflow Graph</li>
+<li>Main DBMS
+<ul>
+<li>Parse queries</li>
+<li>Generate a query plan</li>
+<li>Take out the select-join sub-plans to the RouLette engine</li>
+<li>Wait for the RouLette engine outputs results for further processing</li>
+</ul>
+</li>
+<li>RouLette Engine
+<ul>
+<li>Ingestion Module: scan each table and keep tracking the progress of scan for each queries
+<ul>
+<li>Output a vector of tuples for a table (vector size: 1024)</li>
+</ul>
+</li>
+<li>Eddy Module: generate a global query plan
+<ul>
+<li>Idea: Selection -&gt; Join (selection-push-down)</li>
+<li>Steps:
+<ul>
+<li>Put the selection operator for the tuples first 
+<ul>
+<li>Filter based on all where constraints</li>
+<li>Uses a query-set bitmap</li>
+</ul>
+</li>
+<li>Put insertion operator to a temp table (STeM)</li>
+<li>Select a candidate join operator (based on RL)</li>
+<li>Final Plan Tree</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Executor Module: executes the query plan using a worker thread
+<ul>
+<li>Can run multiple episodes with multiple worker threads</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RL Agent to select candidate operators
+<ul>
+<li>List state, action, reward</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reinforcement-learning-to-rank"><a class="header" href="#reinforcement-learning-to-rank">Reinforcement Learning to Rank</a></h1>
+<ul>
+<li><a href="rl_to_rank/zhou2020rlirank.html">WWW'20 - RLIRank: Learning to Rank with Reinforcement Learning for Dynamic Search</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rlirank-learning-to-rank-with-reinforcement-learning-for-dynamic-search"><a class="header" href="#rlirank-learning-to-rank-with-reinforcement-learning-for-dynamic-search">RLIRank: Learning to Rank with Reinforcement Learning for Dynamic Search</a></h1>
+<ul>
+<li>Authors: Jianghong Zhou, Eugene Agichtein</li>
+<li>Institute: Emory University, Atlanta, USA</li>
+<li>Published at WWW'20</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/10.1145/3366423.3380047">https://dl.acm.org/doi/10.1145/3366423.3380047</a></li>
+</ul>
+<h2 id="background-6"><a class="header" href="#background-6">Background</a></h2>
+<p>Dynamic search is an iterative process to rank documents and collect feedbacks from a user in order to come out the best ranking that fits the query provided by the user.</p>
+<h2 id="motivation-9"><a class="header" href="#motivation-9">Motivation</a></h2>
+<p>They claim that the previous work that uses learning to rank (LTR) methods fail to capture all the ranked documents' information to improve the overall quality of ranking.</p>
+<h2 id="problem-10"><a class="header" href="#problem-10">Problem</a></h2>
+<p>To design a RL agent that ranks documents iteratively for dynamic search.</p>
+<h2 id="method-10"><a class="header" href="#method-10">Method</a></h2>
+<h3 id="rl-modeling"><a class="header" href="#rl-modeling">RL Modeling</a></h3>
+<p>State:</p>
+<ul>
+<li>A sequence of (\(d\), \(q\)) pairs. 
+<ul>
+<li>\(d\): the embedded vector of a ranked document</li>
+<li>\(q\): the embedded vector of the current query</li>
+</ul>
+</li>
+</ul>
+<p>Action:</p>
+<ul>
+<li>\(a_r\): a picked document
+<ul>
+<li>This action updates the state by adding the picked document to the sequence</li>
+</ul>
+</li>
+<li>\(a_t\): the action to update the query by the feedback from the user
+<ul>
+<li>This action updates the state by replacing all the queries with the new query</li>
+</ul>
+</li>
+</ul>
+<p>Reward: NDCG or \(\alpha\)-NDCG</p>
+<p>RL Method:</p>
+<ul>
+<li>Choosing the action with the max expected reward (not total reward).</li>
+<li>The expected reward </li>
+</ul>
+<h3 id="document-and-query-embedding"><a class="header" href="#document-and-query-embedding">Document and Query Embedding</a></h3>
+<p>Uses Google Universal Sentence Encoder</p>
+<h2 id="experiments-6"><a class="header" href="#experiments-6">Experiments</a></h2>
+<p>Looks great. However, it shows this method outperforms MDP method. Why?</p>
+<h2 id="conclusion-9"><a class="header" href="#conclusion-9">Conclusion</a></h2>
+<p>This is definitely not a usual RL approach. I am not sure why it works.</p>
+<h2 id="questions-8"><a class="header" href="#questions-8">Questions</a></h2>
+<ul>
+<li>Why did it use stacked RNN?</li>
+<li>What is the value network presented in the paper? Is that a DQN method?
+<ul>
+<li>It seems like &quot;the value network&quot; is a network to predict the reward given the current state and action. So, it is not a DQN method.</li>
+</ul>
+</li>
+<li>It uses NDCG to calculate the rewards. What is that?</li>
+<li>Why is its loss function to minimize the relevance scores? Why not just maximizing rewards?</li>
+<li>What is MDP in the experiments? Does it mean Markov Decision Process?</li>
+<li>\(a_t\) depends on user's feedbacks. How does the RL agent iterate each action before it receives user's feedbacks?</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </body>
+</html>

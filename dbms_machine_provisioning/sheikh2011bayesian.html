@@ -1,0 +1,473 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ICAC&#x27;11 - Modeling Workloads using Gaussian Process - Paper Notes</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="../template.html">Template</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../dbms_machine_provisioning/summary.html"><strong aria-hidden="true">1.</strong> DBMS Workload Modeling &amp; Machine Provisioning</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dbms_machine_provisioning/sheikh2011bayesian.html" class="active"><strong aria-hidden="true">1.1.</strong> ICAC'11 - Modeling Workloads using Gaussian Process</a></li><li class="chapter-item expanded "><a href="../dbms_machine_provisioning/taft2018pstore.html"><strong aria-hidden="true">1.2.</strong> SIGMOD'18 - P-Store</a></li></ol></li><li class="chapter-item expanded "><a href="../dbms_data_partitioning/summary.html"><strong aria-hidden="true">2.</strong> DBMS Data Partitioning</a></li><li class="chapter-item expanded "><a href="../dbms_query_processing/summary.html"><strong aria-hidden="true">3.</strong> DBMS Query Processing</a></li><li class="chapter-item expanded "><a href="../dbms_scalability/summary.html"><strong aria-hidden="true">4.</strong> DBMS Scalability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dbms_scalability/lu2019star.html"><strong aria-hidden="true">4.1.</strong> VLDB'19 - Star</a></li><li class="chapter-item expanded "><a href="../dbms_scalability/georgiou2020hihooi.html"><strong aria-hidden="true">4.2.</strong> TKDE'20 - Hihooi</a></li></ol></li><li class="chapter-item expanded "><a href="../deterministic_dbms/summary.html"><strong aria-hidden="true">5.</strong> Deterministic DBMS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../deterministic_dbms/ren2014evaluation.html"><strong aria-hidden="true">5.1.</strong> VLDB'14 - Advantages and Disadvantages of Deterministic DBMS</a></li><li class="chapter-item expanded "><a href="../deterministic_dbms/lu2020aria.html"><strong aria-hidden="true">5.2.</strong> VLDB'20 - Aria</a></li></ol></li><li class="chapter-item expanded "><a href="../dbms_with_ai/summary.html"><strong aria-hidden="true">6.</strong> DBMS + AI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dbms_with_ai/aken2017ottertune.html"><strong aria-hidden="true">6.1.</strong> SIGMOD'17 - OtterTune</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/marcus2019dlquery.html"><strong aria-hidden="true">6.2.</strong> CIDR'19 - Query Optimizer through DL</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/zhou2020dbaisurvey.html"><strong aria-hidden="true">6.3.</strong> TKDE'20 - Database Meets AI: A Survey</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/lin2021mb2.html"><strong aria-hidden="true">6.4.</strong> SIGMOD'21 - MB2</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/hilprecht2022zeroshot.html"><strong aria-hidden="true">6.5.</strong> CIDR'22 - Zero-Shot Learning on DBMS</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/sioulas2021roulette.html"><strong aria-hidden="true">6.6.</strong> SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning</a></li></ol></li><li class="chapter-item expanded "><a href="../rl_to_rank/summary.html"><strong aria-hidden="true">7.</strong> Reinforcement Learning to Rank</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rl_to_rank/zhou2020rlirank.html"><strong aria-hidden="true">7.1.</strong> WWW'20 - RLIRank</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Paper Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="a-bayesian-approach-to-online-performance-modeling-for-database-appliances-using-gaussian-models"><a class="header" href="#a-bayesian-approach-to-online-performance-modeling-for-database-appliances-using-gaussian-models">A Bayesian Approach to Online Performance Modeling for Database Appliances using Gaussian Models</a></h1>
+<ul>
+<li>Authors: Muhammad Bilal Sheikh, Umar Farooq Minhas, Omar Zia Khan, Ashraf Aboulnaga, Pascal Poupart, David J Taylor</li>
+<li>Institute: University of Waterloo</li>
+<li>Published at ICAC'11</li>
+<li>Paper Link: <a href="https://dl.acm.org/doi/10.1145/1998582.1998603">https://dl.acm.org/doi/10.1145/1998582.1998603</a></li>
+</ul>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<ul>
+<li>Database Appliance
+<ul>
+<li>A VM with a pre-installed copy of a OS and a DBMS</li>
+<li>Easy to deploy</li>
+</ul>
+</li>
+</ul>
+<h2 id="motivation"><a class="header" href="#motivation">Motivation</a></h2>
+<ul>
+<li>DBA may need to predict workloads to decide how to allocate resources</li>
+<li>Previous work on this
+<ul>
+<li>Analytical models
+<ul>
+<li>Need a domain expert</li>
+<li>Specific to a particular DBMS</li>
+</ul>
+</li>
+<li>Experiment-driven
+<ul>
+<li>Method
+<ul>
+<li>Modeling workloads by sampling from query executions</li>
+<li>Use statistical models to fit the workloads</li>
+</ul>
+</li>
+<li>Problems
+<ul>
+<li>Any new change to the workloads make these previous methods need to collect new data and retrain their models.</li>
+<li>Hard to introduce prior knowledge to the models.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="problem"><a class="header" href="#problem">Problem</a></h2>
+<p>To model workloads with Gaussian Process and make it adapt to changing workloads fast.</p>
+<h3 id="formal-definition"><a class="header" href="#formal-definition">Formal Definition</a></h3>
+<p>Assumptions:</p>
+<ul>
+<li>Each query belongs to a particular query type \(Q_i\), where \(1 \le i \le T\).</li>
+<li>There are \(T\) types of queries.</li>
+<li>A mix of queries \(m_j\) is represented as a vector \(&lt;N_{1j},...,N_{Tj}&gt;\), where \(N_{ij}\) represents # of queries in type \(Q_i\).</li>
+<li>The total number of queries in a mix is less than \(M\), where \(M\) is defined by the DBA.</li>
+<li>The samples for the mix \(m_j\) is represented as \(S_j = &lt;m_j,r_{ij}&gt;\) where \(r_{ij}\) is the real response time for a query in type \(Q_i\) in mix \(m_j\).</li>
+</ul>
+<p>Goal:</p>
+<p>To find a function \(f(.)\) such that \( \hat{r}_{ij} = f(m_j, Q_i) \) where \( \hat{r}_{ij} \) is the estimated response time for a query in type \(Q_i\).</p>
+<h2 id="method"><a class="header" href="#method">Method</a></h2>
+<h3 id="main-idea"><a class="header" href="#main-idea">Main Idea</a></h3>
+<p>It maintains two models:</p>
+<ul>
+<li>Response Time Model
+<ul>
+<li>Given the current workload mix \(m_i\) and the target query type \(Q_i\), predict the response time.</li>
+</ul>
+</li>
+<li>Configuration Model
+<ul>
+<li>Given the current system configuration, predict the parameters of the response time model.</li>
+</ul>
+</li>
+</ul>
+<p>With these models, the system will not need to retrain for new system configs because it can predict the parameters from the configuration model.</p>
+<h3 id="system-overview"><a class="header" href="#system-overview">System Overview</a></h3>
+<p><img src="https://i.imgur.com/8jmV23I.png" alt="" /></p>
+<h3 id="each-components"><a class="header" href="#each-components">Each Components</a></h3>
+<h4 id="generating-training-data"><a class="header" href="#generating-training-data">Generating Training Data</a></h4>
+<p>Two ways:</p>
+<ul>
+<li>Uniformly sampling # of queries for each query type
+<ul>
+<li>This will generating a data set with a small variance and its total load would concentrate on \(\frac{M}{2}\). Not good for learning.</li>
+</ul>
+</li>
+<li>Uniformly sampling (the total number of queries, the number of different types of queries)</li>
+</ul>
+<h4 id="modeling-response-time"><a class="header" href="#modeling-response-time">Modeling Response Time</a></h4>
+<p>Proposed Two Types of Models</p>
+<ul>
+<li>Linear Gaussian Models
+<ul>
+<li>Input: could be
+<ol>
+<li>the current total load (# of queries) \(l\)<br />
+=&gt; Linear Load Model</li>
+<li>the # of queries for each query type \(m = &lt;N_{1},...,N_{T}&gt;\)<br />
+=&gt; Linear Query Mix Model</li>
+</ol>
+</li>
+<li>Output: the response time \(r\)</li>
+<li>Model: \(P(r|l;\theta) = \mathcal{N}(\beta_0 + \beta_1 l, \sigma^2)\)</li>
+<li>How to learn? Maximum Likelihood Estimation (MLE)</li>
+</ul>
+</li>
+<li>Gaussian Process Models
+<ul>
+<li>Input: could be
+<ol>
+<li>the current total load (# of queries) \(l\)<br />
+=&gt; Gaussain Process Load Model (GPLM)</li>
+<li>the # of queries for each query type \(m = &lt;N_{1},...,N_{T}&gt;\)<br />
+=&gt; Gaussian Process Mix Model (GPMM)</li>
+<li>Combination of total load \(l\) and mix \(m\)<br />
+=&gt; Gaussian Process Mix + Load Model (GPMLM)</li>
+</ol>
+</li>
+<li>Output: a gaussian distribution of the response time \(r\)</li>
+<li>Model: Gaussain Process
+<ul>
+<li>Mean Functions:
+<ol>
+<li>0 mean</li>
+<li>linear mean function: \(mean(x) = \beta_0 + \beta_1 x_1 + ... + \beta_T x_T\)</li>
+</ol>
+</li>
+<li>Kernel Functions:
+<ol>
+<li>Squared Exponential Function (SE, i.e. RBF Kernel)<br />
+$$
+k(x, x') = \sigma^2 exp(\frac{-||x - x'||^2}{2 \eta ^ 2 I})
+$$</li>
+<li>Rational Quadratic Function (RQ)
+$$
+k(x, x') = \sigma^2 [1 + \frac{||x - x'||^2}{2 \alpha \eta ^ 2 I}] ^ {-\alpha}
+$$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>How to find the hyper-parameters? Same as linear models, Maximum Likelihood Estimation (MLE).</li>
+</ul>
+</li>
+</ul>
+<h4 id="modeling-hyper-parameters-of-a-response-time-model"><a class="header" href="#modeling-hyper-parameters-of-a-response-time-model">Modeling Hyper-parameters of a Response Time Model</a></h4>
+<p>They found that</p>
+<ul>
+<li>A different configuration of the system needs a different set of hyper-parameters (i.e. a different model)</li>
+<li>If a configuration do not appear in the training data set, the model may not learn well.</li>
+</ul>
+<p>So, we need a model to predict hyper-parameters for GP models.</p>
+<ul>
+<li>Input:
+<ul>
+<li>Mean of recent response time: \(R_{MEAN}\)</li>
+<li>STD of recent response time: \(R_{SD}\)</li>
+<li>Buffer Pool Size: \(BP\)</li>
+<li>CPU Count: \(CPU_{NUM}\)</li>
+<li>CPU Frequency (in MHz): \(CPU\)</li>
+<li>Memory Size: \(MEM\)</li>
+</ul>
+</li>
+<li>Output: each hyper-parameter used by GP models (one model per hyper-parameter)</li>
+<li>Model: should be Gaussain Process, but the paper does not say explictly
+<ul>
+<li>Mean and kernel functions are unknown.</li>
+</ul>
+</li>
+</ul>
+<h2 id="experiments"><a class="header" href="#experiments">Experiments</a></h2>
+<h3 id="model-accuracy"><a class="header" href="#model-accuracy">Model Accuracy</a></h3>
+<p>Effect of Buffer Pool Size (Figure 3)</p>
+<ul>
+<li>It shows the linear models work poorer than GP models in all conditions, especially when the database fit partially in the buffer pool.</li>
+</ul>
+<p>Effectiveness under overload (Figure 4)</p>
+<ul>
+<li>It shows the GP models able to capture the variance of response time even if the system is overloaded and the variance is large.</li>
+</ul>
+<p>Overall Accuracy (Figure 5)</p>
+<ul>
+<li>It shows GPMLM (0, RQ) works well in all tests.</li>
+</ul>
+<h3 id="online-adaptability"><a class="header" href="#online-adaptability">Online Adaptability</a></h3>
+<p>Online Costs</p>
+<ul>
+<li>Linear models work poorly so it does not adapt it to the online setting.</li>
+<li>GP models with linear mean have very high cost since the mean function has \(T + 1\) hyper-parameters to learn.
+<ul>
+<li>Takes 1 hour to learn for 22 query types with 500 samples/type.</li>
+</ul>
+</li>
+<li>GP models with 0 mean and RQ kernel works best.
+<ul>
+<li>Takes 4~7 minutes to learn for 22 query types with 500 samples/type.</li>
+</ul>
+</li>
+</ul>
+<p>Adapting to Dynamic Configurations (Figure 6)</p>
+<ul>
+<li>This experiment evaluates how the model performs when the configuration changes.</li>
+<li>If each time the configuration changes and the model simply throw all samples, the results show it suffer from high error rate in the beginning.</li>
+<li>If the model does not throw the samples but keeps them, the results show the error rate would be much lower at the same time.</li>
+<li>The results also show that the online models work similar to the models pre-trained using the same workload.</li>
+</ul>
+<p>Adapting to Dynamic Workloads (Figure 7)</p>
+<ul>
+<li>This experiment evaluates how the model performs when new query types appear in the workload.</li>
+<li>The model that keeps the old data while collecting new data works best.</li>
+</ul>
+<h4 id="model-robustness"><a class="header" href="#model-robustness">Model Robustness</a></h4>
+<p>Impact of New Queries (Figure 8)</p>
+<ul>
+<li>GPMLM(0, RQ) works best with 4% increase in precentage error when there are 5 new query types.
+<ul>
+<li>This is because GPMLM also models the total number of queries which is a useful info for predicting response time.</li>
+</ul>
+</li>
+</ul>
+<p>Online Model Convergence (Figure 9)</p>
+<ul>
+<li>This experiment tests how well GPCM works when a new query type appear</li>
+<li>Setting the hyper-parameters to 0 works worst.</li>
+<li>Setting the hyper-parameters by averaging over existing parameters work quite well.
+<ul>
+<li>This shows that there are correlation between these parameters</li>
+</ul>
+</li>
+<li>Setting the hyper-parameters using GPCM works best.</li>
+<li>It also shows that 100 samples are enoguh for a good GP model.</li>
+</ul>
+<p>Configuration Model Accuarcy (Figure 10)</p>
+<ul>
+<li>I don't understand this...</li>
+</ul>
+<h3 id="notable-references"><a class="header" href="#notable-references">Notable References</a></h3>
+<ul>
+<li>Use Gaussian Process to model workloads
+<ul>
+<li>EDBT'11 - Predicting completion times of batch query workloads using interaction-aware models and simulation.</li>
+<li>SIGMOD'10 - iTuned: a tool for configuring and visualizing database parameters.</li>
+</ul>
+</li>
+</ul>
+<h3 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h3>
+<ul>
+<li>Pros
+<ul>
+<li>GP's advantages
+<ul>
+<li>Can introduce prior knowledge (distributions)</li>
+<li>Can provide confidence intervals for each prediction</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cons
+<ul>
+<li>It does not propose any application on DBMSs.</li>
+</ul>
+</li>
+</ul>
+<h3 id="questions"><a class="header" href="#questions">Questions</a></h3>
+<ul>
+<li>Why not just use online-learning methods to overcome dynamic workloads?</li>
+<li>It seems like it assumes that every query in the same type has the same response time or at least similiar time. Is this a reasonable assumption?</li>
+<li>How does the second way of sampling decides the ratio of number of queries between each type when generating training data?</li>
+<li>What is the difference between the kernel functions that this paper uses?</li>
+<li>Why is training the configuration model more reasonable than training a single response time model?
+<ul>
+<li>because the response time model can only work for one type of system configuration.</li>
+<li>the space of system configurations is much smaller than the space of possible workloads.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../dbms_machine_provisioning/summary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../dbms_machine_provisioning/taft2018pstore.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../dbms_machine_provisioning/summary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../dbms_machine_provisioning/taft2018pstore.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SIGMOD&#x27;17 - OtterTune - Paper Notes</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="../template.html">Template</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../dbms_machine_provisioning/summary.html"><strong aria-hidden="true">1.</strong> DBMS Workload Modeling &amp; Machine Provisioning</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dbms_machine_provisioning/sheikh2011bayesian.html"><strong aria-hidden="true">1.1.</strong> ICAC'11 - Modeling Workloads using Gaussian Process</a></li><li class="chapter-item expanded "><a href="../dbms_machine_provisioning/taft2018pstore.html"><strong aria-hidden="true">1.2.</strong> SIGMOD'18 - P-Store</a></li></ol></li><li class="chapter-item expanded "><a href="../dbms_data_partitioning/summary.html"><strong aria-hidden="true">2.</strong> DBMS Data Partitioning</a></li><li class="chapter-item expanded "><a href="../dbms_query_processing/summary.html"><strong aria-hidden="true">3.</strong> DBMS Query Processing</a></li><li class="chapter-item expanded "><a href="../dbms_scalability/summary.html"><strong aria-hidden="true">4.</strong> DBMS Scalability</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dbms_scalability/lu2019star.html"><strong aria-hidden="true">4.1.</strong> VLDB'19 - Star</a></li><li class="chapter-item expanded "><a href="../dbms_scalability/georgiou2020hihooi.html"><strong aria-hidden="true">4.2.</strong> TKDE'20 - Hihooi</a></li></ol></li><li class="chapter-item expanded "><a href="../deterministic_dbms/summary.html"><strong aria-hidden="true">5.</strong> Deterministic DBMS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../deterministic_dbms/ren2014evaluation.html"><strong aria-hidden="true">5.1.</strong> VLDB'14 - Advantages and Disadvantages of Deterministic DBMS</a></li><li class="chapter-item expanded "><a href="../deterministic_dbms/lu2020aria.html"><strong aria-hidden="true">5.2.</strong> VLDB'20 - Aria</a></li></ol></li><li class="chapter-item expanded "><a href="../dbms_with_ai/summary.html"><strong aria-hidden="true">6.</strong> DBMS + AI</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dbms_with_ai/aken2017ottertune.html" class="active"><strong aria-hidden="true">6.1.</strong> SIGMOD'17 - OtterTune</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/marcus2019dlquery.html"><strong aria-hidden="true">6.2.</strong> CIDR'19 - Query Optimizer through DL</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/zhou2020dbaisurvey.html"><strong aria-hidden="true">6.3.</strong> TKDE'20 - Database Meets AI: A Survey</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/lin2021mb2.html"><strong aria-hidden="true">6.4.</strong> SIGMOD'21 - MB2</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/hilprecht2022zeroshot.html"><strong aria-hidden="true">6.5.</strong> CIDR'22 - Zero-Shot Learning on DBMS</a></li><li class="chapter-item expanded "><a href="../dbms_with_ai/sioulas2021roulette.html"><strong aria-hidden="true">6.6.</strong> SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning</a></li></ol></li><li class="chapter-item expanded "><a href="../rl_to_rank/summary.html"><strong aria-hidden="true">7.</strong> Reinforcement Learning to Rank</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rl_to_rank/zhou2020rlirank.html"><strong aria-hidden="true">7.1.</strong> WWW'20 - RLIRank</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Paper Notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="automatic-database-management-system-tuning-through-large-scale-machine-learning"><a class="header" href="#automatic-database-management-system-tuning-through-large-scale-machine-learning">Automatic Database Management System Tuning Through Large-scale Machine Learning</a></h1>
+<ul>
+<li>Authors: Dana Van Aken, Andrew Pavlo, Geoffrey J. Gordon, Bohan Zhang</li>
+<li>Institute: CMU, Peking University</li>
+<li>Published at SIGMOD'17</li>
+<li>Paper Link: <a href="http://www.cs.cmu.edu/%7Epavlo/papers/p1009-van-aken.pdf">http://www.cs.cmu.edu/~pavlo/papers/p1009-van-aken.pdf</a></li>
+</ul>
+<h2 id="problem"><a class="header" href="#problem">Problem</a></h2>
+<p>To tune the configurations of a DBMS using ML models.</p>
+<h3 id="assumptions"><a class="header" href="#assumptions">Assumptions</a></h3>
+<ul>
+<li>The tuner must have administrative privileges to modify the DBMS's configurations.</li>
+<li>The cost of restarting a DBMS is ignored.</li>
+<li>The physical design is reasonable.
+<ul>
+<li>Proper indexes, materialized views, other database elements have been installed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="method"><a class="header" href="#method">Method</a></h2>
+<p><img src="aken2017ottertune-figure3.png" alt="Overview" /></p>
+<h3 id="workload-characterization"><a class="header" href="#workload-characterization">Workload Characterization</a></h3>
+<p>OtterTune collects the <strong>internal</strong> metrics because those metrics directly relate to the knobs and more predictable when tuning knobs.</p>
+<ul>
+<li>the number of pages read/writes</li>
+<li>query cache utilization</li>
+<li>locking overhead</li>
+</ul>
+<h4 id="how-to-pick-up-useful-metrics"><a class="header" href="#how-to-pick-up-useful-metrics">How to Pick Up Useful Metrics</a></h4>
+<p>Some metrics may redundant because</p>
+<ul>
+<li>they are the same but in different units (MB/KB...)</li>
+<li>they are highly correlated</li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>Build a matrix \(X\) where \(X_{ij}\) represents the value of metric \(i\) on configuration set \(j\)</li>
+<li>Performs Factor Analysis to reduce the dimension of \(X\) to \(U\) where \(U_{ij}\) represents the value of metric \(i\) on the \(j\)-th factor</li>
+<li>Performs k-means clustering and pick up only the most representative metric in each cluster
+<ul>
+<li>\(K\) is determined by a heuristic algorithm without human intervention</li>
+</ul>
+</li>
+</ol>
+<p>Example Results:</p>
+<p><img src="aken2017ottertune-figure1.png" alt="Picking Useful Metrics" /></p>
+<h3 id="knob-identification"><a class="header" href="#knob-identification">Knob Identification</a></h3>
+<ul>
+<li>Use LASSO to evaluate the impact of each knobs
+<ul>
+<li>\(X\): knobs</li>
+<li>\(y\): metrics</li>
+<li>The most common feature selection algorithm</li>
+<li>Computationally efficient</li>
+</ul>
+</li>
+<li>Includes polynomial features to test if there is dependency between two knobs
+<ul>
+<li>For example, product &quot;Buffer Pool Size&quot; and &quot;Log Buffer Size&quot; as a feature to see if LASSO pick up this feature</li>
+</ul>
+</li>
+<li>Use incremental approach (gradually increase the number of selected knobs/features and check the effectiveness)</li>
+</ul>
+<p>Example Results:</p>
+<p><img src="aken2017ottertune-figure2.png" alt="LASSO" /></p>
+<h3 id="automatic-tuner"><a class="header" href="#automatic-tuner">Automatic Tuner</a></h3>
+<p>Steps</p>
+<ol>
+<li>Find the most similar workload in the past (workload mapping)
+<ol>
+<li>Build a matrix \(X_m\) for each metric \(m\) where \(X_{mij}\) represents the value of metric \(m\) when running the DBMS on workload \(i\) with configuration set \(j\)
+<ul>
+<li>The values must be normalized.</li>
+</ul>
+</li>
+<li>Compute euclidean distance for the target workload \(i\) with other rows in the same matrix</li>
+<li>Average the distance for each row/workload across matrixes as <strong>scores</strong></li>
+<li>Choose the workload id with the lowest score as the most similar workload</li>
+</ol>
+</li>
+<li>Use Gaussian Process (GP) to predict the best configuration set</li>
+</ol>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Interesting insights</p>
+<ul>
+<li>Uses not only external metrics but also internal metrics for evaluating the performance of a configuration</li>
+<li>The way of picking up the useful metrics</li>
+</ul>
+<h2 id="questions"><a class="header" href="#questions">Questions</a></h2>
+<ul>
+<li>How do they use the dependencies between knobs? Do those become features?
+<ul>
+<li>Not sure</li>
+</ul>
+</li>
+<li>Do they use the variance given by Gaussian Process?
+<ul>
+<li>They use the variance as the confidence level</li>
+</ul>
+</li>
+<li>Does OtterTune use any workload information such as queries or transactions for tuning?
+<ul>
+<li>No</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../dbms_with_ai/summary.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../dbms_with_ai/marcus2019dlquery.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../dbms_with_ai/summary.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../dbms_with_ai/marcus2019dlquery.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

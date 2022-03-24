@@ -8,3 +8,7 @@
 ## Self-Driving DBMSs
 
 - [SIGMOD'21 - MB2: Decomposed Behavior Modeling for Self-Driving Database Management Systems](lin2021mb2.md)
+
+## Multi-Query Execution
+
+- [SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning](sioulas2021roulette.md)

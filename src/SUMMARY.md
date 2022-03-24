@@ -21,5 +21,6 @@
   - [CIDR'19 - Query Optimizer through DL](dbms_with_ai/marcus2019dlquery.md)
   - [TKDE'20 - Database Meets AI: A Survey](dbms_with_ai/zhou2020dbaisurvey.md)
   - [SIGMOD'21 - MB2](dbms_with_ai/lin2021mb2.md)
+  - [CIDR'22 - Zero-Shot Learning on DBMS](dbms_with_ai/hilprecht2022zeroshot.md)
 - [Reinforcement Learning to Rank](rl_to_rank/summary.md)
   - [WWW'20 - RLIRank](rl_to_rank/zhou2020rlirank.md)

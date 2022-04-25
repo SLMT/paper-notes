@@ -12,3 +12,7 @@
 ## Multi-Query Execution
 
 - [SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning](sioulas2021roulette.md)
+
+## Query Optimizer
+
+- [SIGMOD'22 - Balsa: Learning a Query Optimizer Without Expert Demonstrations](yang2022balsa.md)

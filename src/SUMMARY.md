@@ -23,5 +23,6 @@
   - [SIGMOD'21 - MB2](dbms_with_ai/lin2021mb2.md)
   - [CIDR'22 - Zero-Shot Learning on DBMS](dbms_with_ai/hilprecht2022zeroshot.md)
   - [SIGMOD'21 - Scalable Multi-Query Execution using Reinforcement Learning](dbms_with_ai/sioulas2021roulette.md)
+  - [SIGMOD'22 - Balsa](dbms_with_ai/yang2022balsa.md)
 - [Reinforcement Learning to Rank](rl_to_rank/summary.md)
   - [WWW'20 - RLIRank](rl_to_rank/zhou2020rlirank.md)

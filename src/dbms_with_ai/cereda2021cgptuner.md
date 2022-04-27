@@ -45,6 +45,45 @@ Goal: To design a tuning algorithm able to consider the entire IT stack and cont
 
 ## Method
 
+### Problem Modeling
+
+A contextual bandit problem:
+
+- Inputs (Context):
+    - The current workload \\(\vec{w}_i \in W\\)
+- Output (Action):
+    - The configurations of the IT stack \\(\vec{x}_i \in X\\)
+- The response of the system (Reward):
+    - Certain performance indicator (e.g., throughput, latency...) \\(y_i \in \mathbb{R}\\)
+
+Workflow:
+
+![Figure 2](cereda2021cgptuner-fg2.PNG)
+
+### Main Idea
+
+Bayesian Optimization using Gaussian Processes:
+
+- The regression model: multi-variate Gaussian distributions
+- Kernel: \\(k((\vec{x}, \vec{w}), (\vec{x}', \vec{w}')) = k(\vec{x}, \vec{x}') + k(\vec{w}, \vec{w}')\\)
+    - where \\(k(a, a')\\) is Matérn 5/2 kernel for both \\(a = \vec{x}\\) and \\(\vec{w}\\)
+- The acquisition function: the GP-Hedge method
+
+Key Steps:
+
+1. Sample a function \\( f_{\vec{w}_i}\\) using Gaussian Processes with previous observations \\( (\vec{x}_n, \vec{w}_n, y_n) \\) for \\( n = 0 ... i - 1 \\) and current workload \\(\vec{w}_i\\)
+2. Using the acquisition function \\( a(.) \\) to optimize \\( max_\vec{x} a(f_{\vec{w}_i}, \vec{x}) \\) to obtain best \\( \vec{x} \\)
+
+### Normalizing Performance
+
+In order to avoid bad exploration due to zero mean sample far away from previous observation, they found that, instead of directly using the performance indicator \\( y_i \\), we should use Normalized Performance Improvement (NPI):
+
+![Formula 3](cereda2021cgptuner-fm3.PNG)
+
+where \\( \vec{x}^+_\vec{w} \\) is the best configuration we have seen so far.
+
+NPI must be re-normalized after each iteration since the best configuration may change.
+
 ## Experiments
 
 ## Conclusion
@@ -53,3 +92,11 @@ Goal: To design a tuning algorithm able to consider the entire IT stack and cont
 
 - What does `vm.dirty_ratio` do?
 - It seems like OpenTuner has already used multi-armed bandits to solve tuning problems. What are the differences between it and this work?
+
+## Background Knowledge
+
+TODO
+
+- Baysian Optimization
+- Gaussain Processes
+- GP-Hedge methods

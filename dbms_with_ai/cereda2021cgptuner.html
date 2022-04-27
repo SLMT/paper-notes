@@ -209,12 +209,61 @@
 </li>
 </ul>
 <h2 id="method"><a class="header" href="#method">Method</a></h2>
+<h3 id="problem-modeling"><a class="header" href="#problem-modeling">Problem Modeling</a></h3>
+<p>A contextual bandit problem:</p>
+<ul>
+<li>Inputs (Context):
+<ul>
+<li>The current workload \(\vec{w}_i \in W\)</li>
+</ul>
+</li>
+<li>Output (Action):
+<ul>
+<li>The configurations of the IT stack \(\vec{x}_i \in X\)</li>
+</ul>
+</li>
+<li>The response of the system (Reward):
+<ul>
+<li>Certain performance indicator (e.g., throughput, latency...) \(y_i \in \mathbb{R}\)</li>
+</ul>
+</li>
+</ul>
+<p>Workflow:</p>
+<p><img src="cereda2021cgptuner-fg2.PNG" alt="Figure 2" /></p>
+<h3 id="main-idea"><a class="header" href="#main-idea">Main Idea</a></h3>
+<p>Bayesian Optimization using Gaussian Processes:</p>
+<ul>
+<li>The regression model: multi-variate Gaussian distributions</li>
+<li>Kernel: \(k((\vec{x}, \vec{w}), (\vec{x}', \vec{w}')) = k(\vec{x}, \vec{x}') + k(\vec{w}, \vec{w}')\)
+<ul>
+<li>where \(k(a, a')\) is Matérn 5/2 kernel for both \(a = \vec{x}\) and \(\vec{w}\)</li>
+</ul>
+</li>
+<li>The acquisition function: the GP-Hedge method</li>
+</ul>
+<p>Key Steps:</p>
+<ol>
+<li>Sample a function \( f_{\vec{w}_i}\) using Gaussian Processes with previous observations \( (\vec{x}_n, \vec{w}_n, y_n) \) for \( n = 0 ... i - 1 \) and current workload \(\vec{w}_i\)</li>
+<li>Using the acquisition function \( a(.) \) to optimize \( max_\vec{x} a(f_{\vec{w}_i}, \vec{x}) \) to obtain best \( \vec{x} \)</li>
+</ol>
+<h3 id="normalizing-performance"><a class="header" href="#normalizing-performance">Normalizing Performance</a></h3>
+<p>In order to avoid bad exploration due to zero mean sample far away from previous observation, they found that, instead of directly using the performance indicator \( y_i \), we should use Normalized Performance Improvement (NPI):</p>
+<p><img src="cereda2021cgptuner-fm3.PNG" alt="Formula 3" /></p>
+<p>where \( \vec{x}^+_\vec{w} \) is the best configuration we have seen so far.</p>
+<p>NPI must be re-normalized after each iteration since the best configuration may change.</p>
 <h2 id="experiments"><a class="header" href="#experiments">Experiments</a></h2>
 <h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
 <h2 id="questions"><a class="header" href="#questions">Questions</a></h2>
 <ul>
 <li>What does <code>vm.dirty_ratio</code> do?</li>
 <li>It seems like OpenTuner has already used multi-armed bandits to solve tuning problems. What are the differences between it and this work?</li>
+</ul>
+<h2 id="background-knowledge"><a class="header" href="#background-knowledge">Background Knowledge</a></h2>
+<p>TODO</p>
+<ul>
+<li>Baysian Optimization</li>
+<li>Gaussain Processes</li>
+<li>GP-Hedge methods</li>
 </ul>
 
                     </main>

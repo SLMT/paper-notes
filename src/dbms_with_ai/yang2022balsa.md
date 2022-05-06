@@ -19,7 +19,7 @@ Query optimizer is an important component that finds out a good execution plan f
 
 ### RL without Demonstration
 
-之前已經有過許多用 RL 實作 Query Optimizer 的研究，然而這些做法都是假設有一個承受的 Query Optimizer 存在，並提供過去的經驗做為學習對象。不過在缺乏這種 optimizer 的系統上，就無法直接引用這些做法解決問題。
+之前已經有過許多用 RL 實作 Query Optimizer 的研究，然而這些做法都是假設有一個成熟的 Query Optimizer 存在，並提供過去的經驗做為學習對象。不過在缺乏這種 optimizer 的系統上，就無法直接引用這些做法解決問題。
 
 因此需要一種不需要有專家 (成熟的 optimizer) 也能夠用的 RL 作法。
 

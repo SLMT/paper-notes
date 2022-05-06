@@ -2362,7 +2362,7 @@ similar output ratios regardless of the absolute elapsed time.</p>
 <p>雖然像是 PostgreSQL 這些 DBMS 都有很成熟的 Query Optimizer，但是比較新興的系統像是近年的 NewSQL 系統就沒有成熟的 Query Optimizer。 然而為每一個系統設計一個成熟的 Query Optimizer 非常花費時間。</p>
 <p>因此如果能用一個 ML Model 來替代的話會方便很多。</p>
 <h3 id="rl-without-demonstration"><a class="header" href="#rl-without-demonstration">RL without Demonstration</a></h3>
-<p>之前已經有過許多用 RL 實作 Query Optimizer 的研究，然而這些做法都是假設有一個承受的 Query Optimizer 存在，並提供過去的經驗做為學習對象。不過在缺乏這種 optimizer 的系統上，就無法直接引用這些做法解決問題。</p>
+<p>之前已經有過許多用 RL 實作 Query Optimizer 的研究，然而這些做法都是假設有一個成熟的 Query Optimizer 存在，並提供過去的經驗做為學習對象。不過在缺乏這種 optimizer 的系統上，就無法直接引用這些做法解決問題。</p>
 <p>因此需要一種不需要有專家 (成熟的 optimizer) 也能夠用的 RL 作法。</p>
 <h2 id="problem-11"><a class="header" href="#problem-11">Problem</a></h2>
 <p>在沒有其他 expert optimizer 的情況下使用 RL 替代 query optimizer。</p>

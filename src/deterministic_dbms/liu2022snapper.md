@@ -30,13 +30,28 @@ To fulfill transaction requirements for actors, Akka introduces **transactors**,
 - Two-phase Commit
 - Early lock release
 
-Actor-oriented Databases (AODBs)
+### Actor-oriented Databases (AODBs)
 
+- What is a AODB?
+  - A database managed using the actor programming model
+  - Each data actor manages an object or a series of objects
+  - A transactional actor execute the logic and send requests to data actors
+    - An actor might be both a transactional actor and a data actor
+  - A set of coordinators are reponsible for coordinating transactional actors
 - Why?
-- Why not general-purpose DBMS?
-    - AODBs are more scalable
-- 
-
+  - The actor model is highly scalable
+    - Actors use asynchronous message passing to avoid blocking and shared states
+    - Since actors are not sharing states, it is easy to deploy actors on multiple machines
+  - In-memory => fast
+  - Why not general-purpose DBMS?
+    - Many backend systems using the actor programming model. AODBs are easier to integrate for them.
+- How does it work?
+  - Game Example: Halo 4
+    - Data Actors: players actors & shop actor
+    - Transactions: purchasing an item
+  - Financial Example: Bank Accounts
+    - Data Actors: account actors
+    - Transactions: transferring money
 
 ### Orleans
 
@@ -85,6 +100,15 @@ A transaction executed in the deterministic mode must provide:
     - Multiple loggers
     - Each logger has its own log file
     - Transactional actors sends its log to one of loggers decided by a simple hash function
+
+### Key Idea to ensure Serializability
+
+Perform a serializability check for all ACTs before they commit:
+
+- For each ACT Ti, check if Ti depends on a batch Bi while a batch Bj with j < i depends on Ti.
+  - If the case exists, abort Ti.
+
+This check ensures there is no cyclic dependency exist between PACTs and ACTs. Other possible violations to serializability have been prevented from the concurrency controls in PACTs and ACTs.
 
 ## Experiments
 
@@ -182,13 +206,21 @@ TPC-C
 
 ## Questions
 
-- ❓ What are 'transactors'? why do we need them?
-- ❓ How does this paper make deterministic and non-deterministic execution co-exist in a single system?
-- ❓ Why does Orleans use 'virtual actors'?
-- ❓ Conflict Serializability
-- ❓ How to ensure serializability while deterministic and non-deterministic txns are presented?
+- ✔️ What are 'transactors'?
+  - Transactors: the actors that support transactional accesses
+- ✔️ Why does Orleans use 'virtual actors'?
+  - They are just lightweight actors, which are only active when necessary
+- ✔️ Conflict Serializability
+  - The most common way to define serializability for DBMSs, which is widely used in most lock-based DBMSs.
+- ✔️ How to ensure serializability while deterministic and non-deterministic txns co-exist?
     - See the example in Figure 8
+    - See the key idea in the note above.
 - ❓ Why did you use hybrid execution instead of non-deterministic only?
-- ❓ How often do deadlocks happen in hybrid execution? Looks like it is a big problem.
-- ❓ Do batch IDs of PACTs and txn IDs of ACTs come from the same counter?
-- ❓ Does DBMS have the cases of non-serializable transactions not due to deadlocks?
+- ✔️ How often do deadlocks happen in hybrid execution? Looks like it is a big problem.
+  - Interesting, Section 5.3.3 shows that only a small portion of transactions are aborted due to deadlocks.
+- ✔️ Do batch IDs of PACTs and txn IDs of ACTs come from the same counter?
+  - It looks like it is. See Figure 8.
+- ❓ Does this system have the cases of non-serializable transactions not due to deadlocks?
+- ❓ It seems like PACTs still need a commit protocol similar to 2PC to ensure the deterministic results. Then, what are the advantages PACTs have compared to ACTs?
+- ❓ Can PACTs commit without 2PC? Calvin does not need it, so this doesn't make sense that this system needs it.
+- ❓ If PACTs win because of batching, why not just batching ACTs?

@@ -185,15 +185,52 @@
 <li>Two-phase Commit</li>
 <li>Early lock release</li>
 </ul>
-<p>Actor-oriented Databases (AODBs)</p>
+<h3 id="actor-oriented-databases-aodbs"><a class="header" href="#actor-oriented-databases-aodbs">Actor-oriented Databases (AODBs)</a></h3>
 <ul>
-<li>Why?</li>
-<li>Why not general-purpose DBMS?
+<li>What is a AODB?
 <ul>
-<li>AODBs are more scalable</li>
+<li>A database managed using the actor programming model</li>
+<li>Each data actor manages an object or a series of objects</li>
+<li>A transactional actor execute the logic and send requests to data actors
+<ul>
+<li>An actor might be both a transactional actor and a data actor</li>
 </ul>
 </li>
-<li></li>
+<li>A set of coordinators are reponsible for coordinating transactional actors</li>
+</ul>
+</li>
+<li>Why?
+<ul>
+<li>The actor model is highly scalable
+<ul>
+<li>Actors use asynchronous message passing to avoid blocking and shared states</li>
+<li>Since actors are not sharing states, it is easy to deploy actors on multiple machines</li>
+</ul>
+</li>
+<li>In-memory =&gt; fast</li>
+<li>Why not general-purpose DBMS?
+<ul>
+<li>Many backend systems using the actor programming model. AODBs are easier to integrate for them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>How does it work?
+<ul>
+<li>Game Example: Halo 4
+<ul>
+<li>Data Actors: players actors &amp; shop actor</li>
+<li>Transactions: purchasing an item</li>
+</ul>
+</li>
+<li>Financial Example: Bank Accounts
+<ul>
+<li>Data Actors: account actors</li>
+<li>Transactions: transferring money</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h3 id="orleans"><a class="header" href="#orleans">Orleans</a></h3>
 <p>Orleans is a framework for actor models. Key features:</p>
@@ -242,6 +279,16 @@
 </ul>
 </li>
 </ul>
+<h3 id="key-idea-to-ensure-serializability"><a class="header" href="#key-idea-to-ensure-serializability">Key Idea to ensure Serializability</a></h3>
+<p>Perform a serializability check for all ACTs before they commit:</p>
+<ul>
+<li>For each ACT Ti, check if Ti depends on a batch Bi while a batch Bj with j &lt; i depends on Ti.
+<ul>
+<li>If the case exists, abort Ti.</li>
+</ul>
+</li>
+</ul>
+<p>This check ensures there is no cyclic dependency exist between PACTs and ACTs. Other possible violations to serializability have been prevented from the concurrency controls in PACTs and ACTs.</p>
 <h2 id="experiments"><a class="header" href="#experiments">Experiments</a></h2>
 <h3 id="base-settings"><a class="header" href="#base-settings">Base Settings</a></h3>
 <ul>
@@ -358,19 +405,42 @@
 <h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
 <h2 id="questions"><a class="header" href="#questions">Questions</a></h2>
 <ul>
-<li>❓ What are 'transactors'? why do we need them?</li>
-<li>❓ How does this paper make deterministic and non-deterministic execution co-exist in a single system?</li>
-<li>❓ Why does Orleans use 'virtual actors'?</li>
-<li>❓ Conflict Serializability</li>
-<li>❓ How to ensure serializability while deterministic and non-deterministic txns are presented?
+<li>✔️ What are 'transactors'?
+<ul>
+<li>Transactors: the actors that support transactional accesses</li>
+</ul>
+</li>
+<li>✔️ Why does Orleans use 'virtual actors'?
+<ul>
+<li>They are just lightweight actors, which are only active when necessary</li>
+</ul>
+</li>
+<li>✔️ Conflict Serializability
+<ul>
+<li>The most common way to define serializability for DBMSs, which is widely used in most lock-based DBMSs.</li>
+</ul>
+</li>
+<li>✔️ How to ensure serializability while deterministic and non-deterministic txns co-exist?
 <ul>
 <li>See the example in Figure 8</li>
+<li>See the key idea in the note above.</li>
 </ul>
 </li>
 <li>❓ Why did you use hybrid execution instead of non-deterministic only?</li>
-<li>❓ How often do deadlocks happen in hybrid execution? Looks like it is a big problem.</li>
-<li>❓ Do batch IDs of PACTs and txn IDs of ACTs come from the same counter?</li>
-<li>❓ Does DBMS have the cases of non-serializable transactions not due to deadlocks?</li>
+<li>✔️ How often do deadlocks happen in hybrid execution? Looks like it is a big problem.
+<ul>
+<li>Interesting, Section 5.3.3 shows that only a small portion of transactions are aborted due to deadlocks.</li>
+</ul>
+</li>
+<li>✔️ Do batch IDs of PACTs and txn IDs of ACTs come from the same counter?
+<ul>
+<li>It looks like it is. See Figure 8.</li>
+</ul>
+</li>
+<li>❓ Does this system have the cases of non-serializable transactions not due to deadlocks?</li>
+<li>❓ It seems like PACTs still need a commit protocol similar to 2PC to ensure the deterministic results. Then, what are the advantages PACTs have compared to ACTs?</li>
+<li>❓ Can PACTs commit without 2PC? Calvin does not need it, so this doesn't make sense that this system needs it.</li>
+<li>❓ If PACTs win because of batching, why not just batching ACTs?</li>
 </ul>
 
                     </main>

@@ -215,12 +215,27 @@ TPC-C
 - ✔️ How to ensure serializability while deterministic and non-deterministic txns co-exist?
     - See the example in Figure 8
     - See the key idea in the note above.
-- ❓ Why did you use hybrid execution instead of non-deterministic only?
+- ✔️ Why did they use hybrid execution instead of non-deterministic only?
+  - Deterministic execution has a few benefits:
+    - No deadlock
+    - Easy for batching
 - ✔️ How often do deadlocks happen in hybrid execution? Looks like it is a big problem.
   - Interesting, Section 5.3.3 shows that only a small portion of transactions are aborted due to deadlocks.
 - ✔️ Do batch IDs of PACTs and txn IDs of ACTs come from the same counter?
   - It looks like it is. See Figure 8.
 - ❓ Does this system have the cases of non-serializable transactions not due to deadlocks?
-- ❓ It seems like PACTs still need a commit protocol similar to 2PC to ensure the deterministic results. Then, what are the advantages PACTs have compared to ACTs?
-- ❓ Can PACTs commit without 2PC? Calvin does not need it, so this doesn't make sense that this system needs it.
-- ❓ If PACTs win because of batching, why not just batching ACTs?
+- ✔️ It seems like PACTs still need a commit protocol similar to 2PC to ensure the deterministic results. Then, what are the advantages PACTs have compared to ACTs?
+  - No deadlock and batching
+- ✔️ Can PACTs commit without 2PC? Calvin does not need it, so this doesn't make sense that this system needs it.
+  - It seems like PACTs still need 2PC because:
+    - 1) PACTs runs in a master-slave manner
+    - 2) Actors that execute ACTs should know the latest committed PACTs without communicating to coordinators
+- ✔️ If PACTs win because of batching, why not just batching ACTs?
+  - PACTs also wins because it does not have deadlocks.
+  - ACTs are not batched because it is hard to determine which transactions can be grouped by their access pattern.
+- ✔️ Key differences between Calvin and PACTs
+  - Calvin replicates transactions to all partitions while PACTs are executed in a master-slave architecture
+  - Calvin does not need 2PC while PACTs uses a 2PC-like architecture to ensure that coordinators and actors know the latest committed batches so that
+    - 1) coordinators does not need to track dependencies
+    - 2) actors can commit ACTs without communicating to coordinators
+

@@ -27,5 +27,7 @@
   - [CIDR'22 - Zero-Shot Learning on DBMS](dbms_with_ai/hilprecht2022zeroshot.md)
   - [SIGMOD'22 - Balsa](dbms_with_ai/yang2022balsa.md)
   - [SIGMOD'22 - TScout](dbms_with_ai/butrovich2022tscout.md)
+- [DBMS Experiments](dbms_experiments/summary.md)
+  - [VLDB'22 - A Study of Database Performance Sensitivity to Experiment Settings](dbms_experiments/wang2022sensitivity.md)
 - [Reinforcement Learning to Rank](rl_to_rank/summary.md)
   - [WWW'20 - RLIRank](rl_to_rank/zhou2020rlirank.md)

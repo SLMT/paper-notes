@@ -2904,31 +2904,31 @@ similar output ratios regardless of the absolute elapsed time.</p>
 <ul>
 <li>Focusing on multi-core single-machine
 <ul>
-<li>Silo</li>
-<li>Cicada</li>
+<li>Silo: an in-memory OCC system that eliminates the need of global TIDs by using a serializable commit protocol.</li>
+<li>Cicada: an in-memory OCC &amp; MVCC system that solves a global critical section and proposes varies optimizations for MVCC.</li>
 </ul>
 </li>
 <li>Focusing on distributed transactions
 <ul>
 <li>Using RDMA
 <ul>
-<li>DrTM</li>
-<li>GAM</li>
+<li>DrTM: a DBMS that optimizes distributed transactions using RDMA.</li>
+<li>GAM: a DBMS that further improves the efficiency of processing distributed transactions using RDMA.</li>
 </ul>
 </li>
 <li>Without using RDMA
 <ul>
 <li>Focusing on geo-distributed databases
 <ul>
-<li>TAPIR</li>
-<li>Janus</li>
+<li>TAPIR: a DBMS that optimizes geo-distributed transactions by merging 2PC and Paxos.</li>
+<li>Janus: a DBMS that does similar things like TAPIR but also reduces abort rates using a global dependency graph.</li>
 </ul>
 </li>
 <li>Not especially focusing on geo-distributed env.
 <ul>
-<li>Calvin</li>
-<li>Star</li>
-<li>Aria</li>
+<li>Calvin: a classical deterministic DBMS.</li>
+<li>Star: a DBMS that optimizes distributed transactions using replicas.</li>
+<li>Aria: a deterministic DBMS without the need of knowing read-/write-sets in advance.</li>
 </ul>
 </li>
 </ul>
@@ -2939,8 +2939,8 @@ similar output ratios regardless of the absolute elapsed time.</p>
 </li>
 <li>Key-value DBMSs
 <ul>
-<li>HERD</li>
-<li>MICA</li>
+<li>HERD: a KV store using RDMA</li>
+<li>MICA: a KV store using DPDK (a better TCP)</li>
 </ul>
 </li>
 </ul>
@@ -3080,7 +3080,12 @@ similar output ratios regardless of the absolute elapsed time.</p>
 <li>Test KV lookup speed =&gt; using small KVs with low contention but batching requests</li>
 <li>Test concurrency control =&gt; high contention</li>
 </ul>
-<h2 id="conclusion-13"><a class="header" href="#conclusion-13">Conclusion</a></h2>
+<h2 id="suggestions"><a class="header" href="#suggestions">Suggestions</a></h2>
+<ul>
+<li>Running experiments under a variety of settings is better.</li>
+<li>An article should provide an explicit explanation about the implication of the experiment settings they use.</li>
+<li>TPC-E may be a better choice over TPC-C but most of transactions require non-primary indexes lookup.</li>
+</ul>
 <h2 id="questions-12"><a class="header" href="#questions-12">Questions</a></h2>
 <ul>
 <li>How does Janus decouple I/O from critical sections?</li>
@@ -3136,7 +3141,7 @@ similar output ratios regardless of the absolute elapsed time.</p>
 <p>Uses Google Universal Sentence Encoder</p>
 <h2 id="experiments-11"><a class="header" href="#experiments-11">Experiments</a></h2>
 <p>Looks great. However, it shows this method outperforms MDP method. Why?</p>
-<h2 id="conclusion-14"><a class="header" href="#conclusion-14">Conclusion</a></h2>
+<h2 id="conclusion-13"><a class="header" href="#conclusion-13">Conclusion</a></h2>
 <p>This is definitely not a usual RL approach. I am not sure why it works.</p>
 <h2 id="questions-13"><a class="header" href="#questions-13">Questions</a></h2>
 <ul>

@@ -26,23 +26,23 @@ Reproduced systems list:
 
 - Transactional DBMSs
     - Focusing on multi-core single-machine
-        - Silo
-        - Cicada
+        - Silo: an in-memory OCC system that eliminates the need of global TIDs by using a serializable commit protocol.
+        - Cicada: an in-memory OCC & MVCC system that solves a global critical section and proposes varies optimizations for MVCC.
     - Focusing on distributed transactions
         - Using RDMA
-            - DrTM
-            - GAM
+            - DrTM: a DBMS that optimizes distributed transactions using RDMA.
+            - GAM: a DBMS that further improves the efficiency of processing distributed transactions using RDMA.
         - Without using RDMA
             - Focusing on geo-distributed databases
-                - TAPIR
-                - Janus
+                - TAPIR: a DBMS that optimizes geo-distributed transactions by merging 2PC and Paxos.
+                - Janus: a DBMS that does similar things like TAPIR but also reduces abort rates using a global dependency graph.
             - Not especially focusing on geo-distributed env.
-                - Calvin
-                - Star
-                - Aria
+                - Calvin: a classical deterministic DBMS.
+                - Star: a DBMS that optimizes distributed transactions using replicas.
+                - Aria: a deterministic DBMS without the need of knowing read-/write-sets in advance.
 - Key-value DBMSs
-    - HERD
-    - MICA
+    - HERD: a KV store using RDMA
+    - MICA: a KV store using DPDK (a better TCP)
 
 ## Experiments
 
@@ -172,7 +172,11 @@ Tuning guidelines
 - Test KV lookup speed => using small KVs with low contention but batching requests
 - Test concurrency control => high contention
 
-## Conclusion
+## Suggestions
+
+- Running experiments under a variety of settings is better.
+- An article should provide an explicit explanation about the implication of the experiment settings they use.
+- TPC-E may be a better choice over TPC-C but most of transactions require non-primary indexes lookup.
 
 ## Questions
 
